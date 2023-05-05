@@ -4,8 +4,6 @@ import clientConfig from '@/sanity/clientConfig'
 import SimpleListLayout from '@/layouts/SimpleListLayout'
 
 export default function Tag({tagName, bookmarks}: InferGetStaticPropsType<typeof getStaticProps>) {
-  // const title = ["#"].join(tag.name).toUpperCase()
-  console.log("================(tag)2>", tagName)
   
   return (
     <>
@@ -25,7 +23,7 @@ export async function getStaticProps({ params }) {
     { "tagName": tagName }
   );
   const { bookmarks } = data[0];
-  console.log("================(tagName)1>", tagName)
+  
   return {
     props: {
       bookmarks,
