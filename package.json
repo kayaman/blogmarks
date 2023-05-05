@@ -82,6 +82,6 @@
     "semi": false,
     "printWidth": 100,
     "bracketSpacing": false,
-    "singleQuote": false
+    "singleQuote": true
   }
 }
