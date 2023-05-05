@@ -3,22 +3,17 @@ import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
-import { sortedBlogPost, allCoreContent } from 'pliny/utils/contentlayer'
-import { InferGetStaticPropsType } from 'next'
-import { NewsletterForm } from 'pliny/ui/NewsletterForm'
-import { allBlogs } from 'contentlayer/generated'
-import type { Blog } from 'contentlayer/generated'
+import { createClient } from "next-sanity";
+import clientConfig from '@/sanity/clientConfig'
 
-const MAX_DISPLAY = 15
+const MAX_DISPLAY = 5 // TODO: implement pagination
 
-export const getStaticProps = async () => {
-  const sortedPosts = sortedBlogPost(allBlogs) as Blog[]
-  const posts = allCoreContent(sortedPosts)
+const client = createClient(clientConfig);
 
-  return { props: { posts } }
-}
 
-export default function Home({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({ bookmarks }: InferGetStaticPropsType<typeof getStaticProps>) {
+  console.log("bookmarks2: ", bookmarks);
+  
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -31,11 +26,12 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
           </p>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-          {!posts.length && 'No posts found.'}
-          {posts.slice(0, MAX_DISPLAY).map((post) => {
-            const { slug, date, title, summary, tags } = post
+          {!bookmarks && 'No bookmarks found.'}
+          {bookmarks && bookmarks.map((bookmark) => { // slice(0, MAX_DISPLAY)
+            const { _id, link, _createdAt: date, tags } = bookmark
+
             return (
-              <li key={slug} className="py-12">
+              <li key={bookmark._id} className="py-12">
                 <article>
                   <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                     <dl>
@@ -49,30 +45,30 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
                         <div>
                           <h2 className="text-2xl font-bold leading-8 tracking-tight">
                             <Link
-                              href={`/blog/${slug}`}
+                              href={link}
                               className="text-gray-900 dark:text-gray-100"
-                            >
-                              {title}
+                              >
+                              {link}
                             </Link>
                           </h2>
+                          
                           <div className="flex flex-wrap">
-                            {tags.map((tag) => (
-                              <Tag key={tag} text={tag} />
-                            ))}
+                            {tags && tags.map((tag) => (
+                              <Tag key={tag._id} name={tag.name} />
+                              ))}
                           </div>
                         </div>
                         <div className="prose max-w-none text-gray-500 dark:text-gray-400">
-                          {summary}
+                          {/* {summary} */}
                         </div>
                       </div>
                       <div className="text-base font-medium leading-6">
-                        <Link
-                          href={`/blog/${slug}`}
+                        {/* <Link
+                          href={`/tags/${tag.name}`}
                           className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                          aria-label={`Read "${title}"`}
-                        >
+                          >
                           Read more &rarr;
-                        </Link>
+                        </Link> */}
                       </div>
                     </div>
                   </div>
@@ -82,22 +78,30 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
           })}
         </ul>
       </div>
-      {posts.length > MAX_DISPLAY && (
+      {bookmarks && bookmarks.length > MAX_DISPLAY && (
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
-            href="/blog"
+            href="/"
             className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-            aria-label="All posts"
-          >
-            All Posts &rarr;
+            aria-label="More bookmarks"
+            >
+            More bookmarks &rarr;
           </Link>
-        </div>
-      )}
-      {siteMetadata.newsletter.provider && (
-        <div className="flex items-center justify-center pt-4">
-          <NewsletterForm />
         </div>
       )}
     </>
   )
+}
+
+export async function getStaticProps() {
+  console.log("getStaticProps");
+  const bookmarks = await client.fetch(
+    `*[_type == 'bookmark']{_id, link, _createdAt, tags[]->{_id, name}}`
+    );
+    console.log("bookmarks: ", bookmarks);
+    return {
+      props: {
+        bookmarks
+      }
+    }
 }
