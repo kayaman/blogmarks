@@ -1,5 +1,4 @@
 import Link from '@/components/Link'
-import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
@@ -27,8 +26,8 @@ export default function Home({ bookmarks }: InferGetStaticPropsType<typeof getSt
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!bookmarks && 'No bookmarks found.'}
-          {bookmarks && bookmarks.map((bookmark) => { // slice(0, MAX_DISPLAY)
-            const { _id, link, _createdAt: date, tags } = bookmark
+          {bookmarks && bookmarks.slice(0, MAX_DISPLAY).map((bookmark) => {
+            const { _id, link, _createdAt: date, tags } = bookmark;
 
             return (
               <li key={bookmark._id} className="py-12">
@@ -98,7 +97,7 @@ export async function getStaticProps() {
   const bookmarks = await client.fetch(
     `*[_type == 'bookmark']{_id, link, _createdAt, tags[]->{_id, name}}`
     );
-    console.log("bookmarks: ", bookmarks);
+    
     return {
       props: {
         bookmarks

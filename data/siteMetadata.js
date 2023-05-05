@@ -4,8 +4,8 @@
 const siteMetadata = {
   title: 'Next.js Starter Blog',
   author: 'Tails Azimuth',
-  headerTitle: 'Bookmarks',
-  description: 'My collection of bookmars',
+  headerTitle: 'my Bookmarks',
+  description: 'My collection of bookmarks',
   language: 'en-us',
   theme: 'dark', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
