@@ -30,7 +30,7 @@ export default function Home({ bookmarks }: InferGetStaticPropsType<typeof getSt
             const { _id, link, _createdAt: date, tags } = bookmark;
 
             return (
-              <li key={bookmark._id} className="py-12">
+              <li key={_id} className="py-12">
                 <article>
                   <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                     <dl>

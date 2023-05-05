@@ -42,6 +42,9 @@
       "@/sanity/*": [
         "sanity/*"
       ],
+      "@/types/*": [
+        "types/*"
+      ],
       "contentlayer/generated": [
         "./.contentlayer/generated"
       ]
