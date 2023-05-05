@@ -1,17 +1,15 @@
 import Link from 'next/link'
-import { kebabCase } from 'pliny/utils/kebabCase'
-
 interface Props {
-  text: string
+  name: string
 }
 
-const Tag = ({ text }: Props) => {
+const Tag = ({ name }: Props) => {
   return (
     <Link
-      href={`/tags/${kebabCase(text)}`}
+      href={`/tags/${name}`}
       className="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
     >
-      {text.split(' ').join('-')}
+      {`#${name}`}
     </Link>
   )
 }
