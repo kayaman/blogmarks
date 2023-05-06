@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
+import {useRouter} from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog, Authors } from 'contentlayer/generated'
+import {CoreContent} from 'pliny/utils/contentlayer'
+import type {Blog, Authors} from 'contentlayer/generated'
 interface CommonSEOProps {
   title: string
   description: string
@@ -37,7 +37,7 @@ const CommonSEO = ({
       <meta property="og:description" content={description} />
       <meta property="og:title" content={title} />
       {Array.isArray(ogImage) ? (
-        ogImage.map(({ url }) => <meta property="og:image" content={url} key={url} />)
+        ogImage.map(({url}) => <meta property="og:image" content={url} key={url} />)
       ) : (
         <meta property="og:image" content={ogImage} key={ogImage} />
       )}
@@ -59,7 +59,7 @@ interface PageSEOProps {
   description: string
 }
 
-export const PageSEO = ({ title, description }: PageSEOProps) => {
+export const PageSEO = ({title, description}: PageSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   return (
@@ -73,7 +73,7 @@ export const PageSEO = ({ title, description }: PageSEOProps) => {
   )
 }
 
-export const TagSEO = ({ title, description }: PageSEOProps) => {
+export const TagSEO = ({title, description}: PageSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const router = useRouter()

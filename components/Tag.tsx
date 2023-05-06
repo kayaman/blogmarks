@@ -3,7 +3,7 @@ interface Props {
   name: string
 }
 
-const Tag = ({ name }: Props) => {
+const Tag = ({name}: Props) => {
   return (
     <Link
       href={`/tags/${name}`}
