@@ -1,7 +1,7 @@
 import {InferGetStaticPropsType} from 'next'
 import {createClient} from 'next-sanity'
 import clientConfig from '@/sanity/clientConfig'
-import SimpleListLayout from '@/layouts/SimpleListLayout'
+import SimpleListLayout from 'src/layouts/SimpleListLayout'
 
 export default function Tag({tagName, bookmarks}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (

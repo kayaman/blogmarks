@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import TagLink from '@/components/TagLink'
+import TagLink from 'src/components/TagLink'
 import siteMetadata from '@/data/siteMetadata'
 import {formatDate} from 'pliny/utils/formatDate'
 import {createClient} from 'next-sanity'
@@ -10,8 +10,6 @@ const MAX_DISPLAY = 5 // TODO: implement pagination
 const client = createClient(clientConfig)
 
 export default function Home({bookmarks}) {
-  console.log('bookmarks2: ', bookmarks)
-
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -30,11 +28,11 @@ export default function Home({bookmarks}) {
               const {_id, link, _createdAt: date, tags} = bookmark
 
               return (
-                <li key={_id} className="py-12">
+                <li key={_id} className="py-8">
                   <article>
                     <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                       <dl>
-                        <dt className="sr-only">Published on</dt>
+                        <dt className="sr-only">Created on</dt>
                         <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                           <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                         </dd>

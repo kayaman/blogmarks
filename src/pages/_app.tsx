@@ -9,7 +9,7 @@ import Head from 'next/head'
 import {ThemeProvider} from 'next-themes'
 
 import siteMetadata from '@/data/siteMetadata'
-import LayoutWrapper from '@/components/LayoutWrapper'
+import LayoutWrapper from 'src/components/LayoutWrapper'
 
 export default function App({Component, pageProps}: AppProps) {
   return (

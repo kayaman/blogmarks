@@ -22,13 +22,13 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": [
-        "components/*"
+        "src/components/*"
       ],
       "@/data/*": [
         "data/*"
       ],
       "@/layouts/*": [
-        "layouts/*"
+        "src/layouts/*"
       ],
       "@/lib/*": [
         "lib/*"
@@ -43,7 +43,7 @@
         "sanity/*"
       ],
       "@/types/*": [
-        "types/*"
+        "src/types/*"
       ],
       "contentlayer/generated": [
         "./.contentlayer/generated"
