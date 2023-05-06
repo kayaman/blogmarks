@@ -1,5 +1,5 @@
 // @ts-check
-const { fontFamily } = require('tailwindcss/defaultTheme')
+const {fontFamily} = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 // ../node_modules/pliny/dist/**/*.mjs is needed for monorepo setup
@@ -9,9 +9,9 @@ module.exports = {
     '../node_modules/pliny/**/*.{js,ts,tsx}',
     './node_modules/pliny/**/*.{js,ts,tsx}',
     './app/**/*.{js,ts,jsx,tsx}',
-    './pages/**/*.{js,ts,tsx}',
-    './components/**/*.{js,ts,tsx}',
-    './layouts/**/*.{js,ts,tsx}',
+    './src/pages/**/*.{js,ts,tsx}',
+    './src/components/**/*.{js,ts,tsx}',
+    './src/layouts/**/*.{js,ts,tsx}',
     './lib/**/*.{js,ts,tsx}',
     './data/**/*.mdx',
   ],
@@ -43,7 +43,7 @@ module.exports = {
               '&:hover': {
                 color: `${theme('colors.primary.600')} !important`,
               },
-              code: { color: theme('colors.primary.400') },
+              code: {color: theme('colors.primary.400')},
             },
             h1: {
               fontWeight: '700',
@@ -88,7 +88,7 @@ module.exports = {
               paddingBottom: '2px',
               borderRadius: '0.25rem',
             },
-            hr: { borderColor: theme('colors.gray.200') },
+            hr: {borderColor: theme('colors.gray.200')},
             'ol li::marker': {
               fontWeight: '600',
               color: theme('colors.gray.500'),
@@ -96,7 +96,7 @@ module.exports = {
             'ul li::marker': {
               backgroundColor: theme('colors.gray.500'),
             },
-            strong: { color: theme('colors.gray.600') },
+            strong: {color: theme('colors.gray.600')},
             blockquote: {
               color: theme('colors.gray.900'),
               borderLeftColor: theme('colors.gray.200'),
@@ -111,7 +111,7 @@ module.exports = {
               '&:hover': {
                 color: `${theme('colors.primary.400')} !important`,
               },
-              code: { color: theme('colors.primary.400') },
+              code: {color: theme('colors.primary.400')},
             },
             h1: {
               fontWeight: '700',
@@ -139,7 +139,7 @@ module.exports = {
             details: {
               backgroundColor: theme('colors.gray.800'),
             },
-            hr: { borderColor: theme('colors.gray.700') },
+            hr: {borderColor: theme('colors.gray.700')},
             'ol li::marker': {
               fontWeight: '600',
               color: theme('colors.gray.400'),
@@ -147,7 +147,7 @@ module.exports = {
             'ul li::marker': {
               backgroundColor: theme('colors.gray.400'),
             },
-            strong: { color: theme('colors.gray.100') },
+            strong: {color: theme('colors.gray.100')},
             thead: {
               th: {
                 color: theme('colors.gray.100'),
