@@ -34,6 +34,5 @@ module.exports = {
     'react/no-unescaped-entities': 0,
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-var-requires': 'off',
-    '@typescript-eslint/ban-ts-comment': 'off',
   },
 }

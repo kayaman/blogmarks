@@ -1,11 +1,11 @@
-import { useState, ReactNode } from 'react'
-import { Comments } from 'pliny/comments'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog, Authors } from 'contentlayer/generated'
-import Link from '@/components/Link'
+import {useState, ReactNode} from 'react'
+import {Comments} from 'pliny/comments'
+import {CoreContent} from 'pliny/utils/contentlayer'
+import type {Blog, Authors} from 'contentlayer/generated'
+import Link from 'next/link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
-import { BlogSEO } from '@/components/SEO'
+import {BlogSEO} from '@/components/SEO'
 import Image from '@/components/Image'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
@@ -25,13 +25,13 @@ const postDateTemplate: Intl.DateTimeFormatOptions = {
 interface LayoutProps {
   content: CoreContent<Blog>
   authorDetails: CoreContent<Authors>[]
-  next?: { path: string; title: string }
-  prev?: { path: string; title: string }
+  next?: {path: string; title: string}
+  prev?: {path: string; title: string}
   children: ReactNode
 }
 
-export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, tags } = content
+export default function PostLayout({content, authorDetails, next, prev, children}: LayoutProps) {
+  const {filePath, path, slug, date, title, tags} = content
   const basePath = path.split('/')[0]
   const [loadComments, setLoadComments] = useState(false)
 
@@ -59,7 +59,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             </div>
           </header>
           <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0">
-            <dl className="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
+            <dl className="pb-10 pt-6 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
               <dt className="sr-only">Authors</dt>
               <dd>
                 <ul className="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
@@ -95,8 +95,8 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">{children}</div>
-              <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
+              <div className="prose max-w-none pb-8 pt-10 dark:prose-dark">{children}</div>
+              <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
                 <Link href={discussUrl(path)} rel="nofollow">
                   Discuss on Twitter
                 </Link>
@@ -105,7 +105,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </div>
               {siteMetadata.comments && (
                 <div
-                  className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
+                  className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300"
                   id="comment"
                 >
                   {!loadComments && (
@@ -124,7 +124,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     </h2>
                     <div className="flex flex-wrap">
                       {tags.map((tag) => (
-                        <Tag key={tag} text={tag} />
+                        <span key={tag}>{tag}</span>
                       ))}
                     </div>
                   </div>

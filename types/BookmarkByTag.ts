@@ -1,5 +1,4 @@
 export type BookmarksByTag = {
-  name: string,
-  bookmarks: object,
+  name: string
+  bookmarks: object
 }
-

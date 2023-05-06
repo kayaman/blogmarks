@@ -4,14 +4,14 @@ import 'katex/dist/katex.css'
 // import '@/css/docsearch.css' // Uncomment if using algolia docsearch
 // import '@docsearch/css' // Uncomment if using algolia docsearch
 
-import type { AppProps } from 'next/app'
+import type {AppProps} from 'next/app'
 import Head from 'next/head'
-import { ThemeProvider } from 'next-themes'
+import {ThemeProvider} from 'next-themes'
 
 import siteMetadata from '@/data/siteMetadata'
 import LayoutWrapper from '@/components/LayoutWrapper'
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({Component, pageProps}: AppProps) {
   return (
     <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
       <Head>
