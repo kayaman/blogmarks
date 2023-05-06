@@ -9,7 +9,7 @@ const MAX_DISPLAY = 5 // TODO: implement pagination
 
 const client = createClient(clientConfig)
 
-export default function Home({bookmarks}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({bookmarks}) {
   console.log('bookmarks2: ', bookmarks)
 
   return (
