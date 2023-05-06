@@ -3,7 +3,7 @@ interface Props {
   name: string
 }
 
-const Tag = ({name}: Props) => {
+const TagLink = ({name}: Props) => {
   return (
     <Link
       href={`/tags/${name}`}
@@ -14,4 +14,4 @@ const Tag = ({name}: Props) => {
   )
 }
 
-export default Tag
+export default TagLink
