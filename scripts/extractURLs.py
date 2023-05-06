@@ -1,18 +1,16 @@
 import re
 
 inputFileName = '/home/kayaman/Downloads/kayaman_bookmarks.html'
-outputFileName = ''
+outputFileName = '/home/kayaman/Documents/bookmarks_extracted_1.txt'
 
 bookmarksFile = open(inputFileName, 'r')
 rawLines = bookmarksFile.readlines()
 
-bookmarks = []
-
+outputFile = open(outputFileName, 'at')
 for line in rawLines:
-    url = re.findall('(http|https):\/\/(\S*)', line)
-    if len(url) > 0:
-        bookmarks.append(url[0])
+    urls = re.findall('(https:\/\/\S*)', line)
+    for url in urls:
         print(url)
-
-
-print(bookmarks)
+        if len(url) > 0:
+            outputFile.write(f'\n{url}')
+outputFile.close()

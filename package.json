@@ -1,6 +1,6 @@
 {
   "name": "bookmarks",
-  "version": "2023-05-05",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "start": "next dev",
