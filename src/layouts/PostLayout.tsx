@@ -3,12 +3,12 @@ import {Comments} from 'pliny/comments'
 import {CoreContent} from 'pliny/utils/contentlayer'
 import type {Blog, Authors} from 'contentlayer/generated'
 import Link from 'next/link'
-import PageTitle from '@/components/PageTitle'
-import SectionContainer from '@/components/SectionContainer'
-import {BlogSEO} from '@/components/SEO'
-import Image from '@/components/Image'
+import PageTitle from 'src/components/PageTitle'
+import SectionContainer from 'src/components/SectionContainer'
+import {BlogSEO} from 'src/components/SEO'
+import Image from 'src/components/Image'
 import siteMetadata from '@/data/siteMetadata'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import ScrollTopAndComment from 'src/components/ScrollTopAndComment'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/master/data/${path}`
 const discussUrl = (path) =>
