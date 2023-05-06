@@ -4,14 +4,12 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 
 export default defineConfig({
-  name: 'default',
-  title: 'bookmarks',
-
   projectId: 'zyofsvoi',
   dataset: 'production',
-
+  name: 'bookmarks',
   plugins: [deskTool(), visionTool()],
-
+  title: 'bookmarks',
+  apiVersion: '2023-05-06',
   schema: {
     types: schemaTypes,
   },
