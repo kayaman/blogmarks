@@ -1,26 +1,26 @@
-import { useState, ReactNode } from 'react'
-import { Comments } from 'pliny/comments'
-import { formatDate } from 'pliny/utils/formatDate'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog } from 'contentlayer/generated'
+import {useState, ReactNode} from 'react'
+import {Comments} from 'pliny/comments'
+import {formatDate} from 'pliny/utils/formatDate'
+import {CoreContent} from 'pliny/utils/contentlayer'
+import type {Blog} from 'contentlayer/generated'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
-import { BlogSEO } from '@/components/SEO'
+import {BlogSEO} from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 
 interface LayoutProps {
   content: CoreContent<Blog>
   children: ReactNode
-  next?: { path: string; title: string }
-  prev?: { path: string; title: string }
+  next?: {path: string; title: string}
+  prev?: {path: string; title: string}
 }
 
-export default function PostLayout({ content, next, prev, children }: LayoutProps) {
+export default function PostLayout({content, next, prev, children}: LayoutProps) {
   const [loadComments, setLoadComments] = useState(false)
 
-  const { path, slug, date, title } = content
+  const {path, slug, date, title} = content
 
   return (
     <SectionContainer>
@@ -45,10 +45,10 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
           </header>
           <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:divide-y-0">
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">{children}</div>
+              <div className="prose max-w-none pb-8 pt-10 dark:prose-dark">{children}</div>
             </div>
             {siteMetadata.comments && (
-              <div className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300" id="comment">
+              <div className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300" id="comment">
                 {!loadComments && (
                   <button onClick={() => setLoadComments(true)}>Load Comments</button>
                 )}

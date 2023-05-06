@@ -1,28 +1,27 @@
-import { Bookmark } from '@/types/Bookmark';
-import { Tag } from '@/types/Tag';
-import { useState } from 'react'
-
+import {Bookmark} from '@/types/Bookmark'
+import {Tag} from '@/types/Tag'
+import {useState} from 'react'
 
 interface SimpleListLayoutProps {
-  bookmarks: Bookmark[],
-  currentTag: string,    // current tag name
-  tags?: Tag[],
-  title?: string,
+  bookmarks: Bookmark[]
+  currentTag: string // current tag name
+  tags?: Tag[]
+  title?: string
 }
 
-export default function ListLayout({
-  bookmarks,
-  currentTag,
-  tags,
-  title
-}: SimpleListLayoutProps) {
+export default function ListLayout({bookmarks, currentTag, tags, title}: SimpleListLayoutProps) {
   // TODO: implement search here
   const [searchValue, setSearchValue] = useState('')
-  
+  console.log(searchValue) // making eslint happy
+  // TODO use tags (from the signature) to implement something like "see also..."
+  console.log(tags) // making eslint happy
+  // TODO find out what TO DO with title =)
+  console.log(title) // making eslint happy
+
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
+        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">{`#${currentTag}`}</h1>
           <div className="relative max-w-lg">
             <label>
@@ -52,13 +51,12 @@ export default function ListLayout({
           </div>
         </div>
         <ul>
-          {bookmarks && bookmarks.map((bookmark) => (
+          {bookmarks &&
+            bookmarks.map((bookmark) => (
               <li key={bookmark._id} className="py-4">
-                { bookmark.link }
+                {bookmark.link}
               </li>
-              )
-            )
-          }
+            ))}
         </ul>
       </div>
     </>

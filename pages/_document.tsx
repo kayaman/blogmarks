@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, {Html, Head, Main, NextScript} from 'next/document'
 import siteMetadata from '@/data/siteMetadata'
 
 class MyDocument extends Document {

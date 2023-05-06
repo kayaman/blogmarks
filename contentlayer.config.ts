@@ -1,4 +1,4 @@
-import { defineDocumentType, ComputedFields, makeSource } from 'contentlayer/source-files'
+import {defineDocumentType, ComputedFields, makeSource} from 'contentlayer/source-files'
 import readingTime from 'reading-time'
 import path from 'path'
 // Remark packages
@@ -21,7 +21,7 @@ import rehypePresetMinify from 'rehype-preset-minify'
 const root = process.cwd()
 
 const computedFields: ComputedFields = {
-  readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
+  readingTime: {type: 'json', resolve: (doc) => readingTime(doc.body.raw)},
   slug: {
     type: 'string',
     resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
@@ -34,7 +34,7 @@ const computedFields: ComputedFields = {
     type: 'string',
     resolve: (doc) => doc._raw.sourceFilePath,
   },
-  toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
+  toc: {type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw)},
 }
 
 export const Blog = defineDocumentType(() => ({
@@ -42,17 +42,17 @@ export const Blog = defineDocumentType(() => ({
   filePathPattern: 'blog/**/*.mdx',
   contentType: 'mdx',
   fields: {
-    title: { type: 'string', required: true },
-    date: { type: 'date', required: true },
-    tags: { type: 'list', of: { type: 'string' } },
-    lastmod: { type: 'date' },
-    draft: { type: 'boolean' },
-    summary: { type: 'string' },
-    images: { type: 'list', of: { type: 'string' } },
-    authors: { type: 'list', of: { type: 'string' } },
-    layout: { type: 'string' },
-    bibliography: { type: 'string' },
-    canonicalUrl: { type: 'string' },
+    title: {type: 'string', required: true},
+    date: {type: 'date', required: true},
+    tags: {type: 'list', of: {type: 'string'}},
+    lastmod: {type: 'date'},
+    draft: {type: 'boolean'},
+    summary: {type: 'string'},
+    images: {type: 'list', of: {type: 'string'}},
+    authors: {type: 'list', of: {type: 'string'}},
+    layout: {type: 'string'},
+    bibliography: {type: 'string'},
+    canonicalUrl: {type: 'string'},
   },
   computedFields,
 }))
@@ -62,15 +62,15 @@ export const Authors = defineDocumentType(() => ({
   filePathPattern: 'authors/**/*.mdx',
   contentType: 'mdx',
   fields: {
-    name: { type: 'string', required: true },
-    avatar: { type: 'string' },
-    occupation: { type: 'string' },
-    company: { type: 'string' },
-    email: { type: 'string' },
-    twitter: { type: 'string' },
-    linkedin: { type: 'string' },
-    github: { type: 'string' },
-    layout: { type: 'string' },
+    name: {type: 'string', required: true},
+    avatar: {type: 'string'},
+    occupation: {type: 'string'},
+    company: {type: 'string'},
+    email: {type: 'string'},
+    twitter: {type: 'string'},
+    linkedin: {type: 'string'},
+    github: {type: 'string'},
+    layout: {type: 'string'},
   },
   computedFields,
 }))
@@ -91,8 +91,8 @@ export default makeSource({
       rehypeSlug,
       rehypeAutolinkHeadings,
       rehypeKatex,
-      [rehypeCitation, { path: path.join(root, 'data') }],
-      [rehypePrismPlus, { ignoreMissing: true }],
+      [rehypeCitation, {path: path.join(root, 'data')}],
+      [rehypePrismPlus, {ignoreMissing: true}],
       rehypePresetMinify,
     ],
   },
