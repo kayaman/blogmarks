@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Tag from '@/components/Tag'
+import TagLink from '@/components/TagLink'
 import siteMetadata from '@/data/siteMetadata'
 import {formatDate} from 'pliny/utils/formatDate'
 import {createClient} from 'next-sanity'
@@ -49,7 +49,7 @@ export default function Home({bookmarks}) {
                             </h2>
 
                             <div className="flex flex-wrap">
-                              {tags && tags.map((tag) => <Tag key={tag._id} name={tag.name} />)}
+                              {tags && tags.map((tag) => <TagLink key={tag._id} name={tag.name} />)}
                             </div>
                           </div>
                           <div className="prose max-w-none text-gray-500 dark:text-gray-400">

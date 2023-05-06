@@ -2,15 +2,16 @@ import Link from 'next/link'
 import {getAllTags} from 'pliny/utils/contentlayer'
 import {GetStaticProps} from 'next'
 import {allBlogs} from 'contentlayer/generated'
+import type {Tag} from '@/types/Tag'
+import clientConfig from '@/sanity/clientConfig'
+import {createClient} from 'next-sanity'
+import TagLink from '@/components/TagLink'
 
-export const getStaticProps: GetStaticProps<{tags: Record<string, number>}> = async () => {
-  const tags = await getAllTags(allBlogs)
-
-  return {props: {tags}}
+type TagsProps = {
+  tags: Tag[]
 }
 
 export default function Tags({tags}) {
-  const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a])
   return (
     <>
       <div className="flex flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
@@ -21,16 +22,15 @@ export default function Tags({tags}) {
         </div>
         <div className="flex max-w-lg flex-wrap">
           {Object.keys(tags).length === 0 && 'No tags found.'}
-          {sortedTags.map((t) => {
+          {tags.map((tag) => {
             return (
-              <div key={t} className="mb-2 mr-5 mt-2">
-                <span>{t}</span>
+              <div key={tag._id} className="mb-2 mr-5 mt-2">
                 <Link
-                  href={`/tags/${t}`}
+                  href={`/tags/${tag.name}`}
                   className="-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300"
-                  aria-label={`View posts tagged ${t}`}
+                  aria-label={`View bookmarks tagged with ${tag.name}`}
                 >
-                  {` (${tags[t]})`}
+                  <TagLink name={tag.name} />
                 </Link>
               </div>
             )
@@ -39,4 +39,14 @@ export default function Tags({tags}) {
       </div>
     </>
   )
+}
+
+const client = createClient(clientConfig)
+export const getStaticProps = async () => {
+  const tags: TagsProps[] = await client.fetch(`*[_type == 'tag']{_id, name}`)
+  return {
+    props: {
+      tags,
+    },
+  }
 }
