@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import {getAllTags} from 'pliny/utils/contentlayer'
-import {GetStaticProps, InferGetStaticPropsType} from 'next'
+import {GetStaticProps} from 'next'
 import {allBlogs} from 'contentlayer/generated'
 
 export const getStaticProps: GetStaticProps<{tags: Record<string, number>}> = async () => {
