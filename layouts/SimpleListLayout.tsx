@@ -12,11 +12,11 @@ interface SimpleListLayoutProps {
 export default function ListLayout({bookmarks, currentTag, tags, title}: SimpleListLayoutProps) {
   // TODO: implement search here
   const [searchValue, setSearchValue] = useState('')
-  console.log(searchValue) // making eslint happy
+  console.log(`searchValue: ${searchValue}`) // making eslint happy
   // TODO use tags (from the signature) to implement something like "see also..."
-  console.log(tags) // making eslint happy
+  console.log(`tags: ${tags}`) // making eslint happy
   // TODO find out what TO DO with title =)
-  console.log(title) // making eslint happy
+  console.log(`title: ${title}`) // making eslint happy
 
   return (
     <>

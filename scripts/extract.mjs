@@ -9,7 +9,6 @@ const re2 = new RegExp(/<A HREF=\"(.+)\"/ig)
 
 const file = await fsp.open(filename, 'r');
 for await (const line of file.readLines()) {
-  // console.log(line);
   let match = line.match(re);
   const link = match || null;
   importedBookmarks.push(link)

@@ -6,7 +6,7 @@ import {Pre} from 'pliny/ui/Pre'
 import {BlogNewsletterForm} from 'pliny/ui/NewsletterForm'
 
 import Image from './Image'
-import CustomLink from './Link'
+import Link from 'next/link'
 
 export const Wrapper = ({layout, content, ...rest}: MDXLayout) => {
   const Layout = require(`../layouts/${layout}`).default
@@ -16,7 +16,7 @@ export const Wrapper = ({layout, content, ...rest}: MDXLayout) => {
 export const MDXComponents: ComponentMap = {
   Image,
   TOCInline,
-  a: CustomLink,
+  a: Link,
   pre: Pre,
   wrapper: Wrapper,
   BlogNewsletterForm,

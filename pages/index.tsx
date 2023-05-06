@@ -1,4 +1,4 @@
-import Link from '@/components/Link'
+import Link from 'next/link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import {formatDate} from 'pliny/utils/formatDate'
@@ -88,7 +88,6 @@ export default function Home({bookmarks}: InferGetStaticPropsType<typeof getStat
 }
 
 export async function getStaticProps() {
-  console.log('getStaticProps')
   const bookmarks = await client.fetch(
     `*[_type == 'bookmark']{_id, link, _createdAt, tags[]->{_id, name}}`
   )

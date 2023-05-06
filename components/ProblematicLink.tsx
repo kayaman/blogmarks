@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import {AnchorHTMLAttributes, DetailedHTMLProps} from 'react'
 
 const CustomLink = ({
@@ -9,15 +8,22 @@ const CustomLink = ({
   const isAnchorLink = href && href.startsWith('#')
 
   if (isInternalLink) {
-    // @ts-ignore
-    return <Link href={href} {...rest} />
+    return <div>this link is problematic</div> //<Link href={href} {...rest} />
   }
 
   if (isAnchorLink) {
-    return <a href={href} {...rest} />
+    return (
+      <a href={href} {...rest}>
+        this Link is deprecated
+      </a>
+    )
   }
 
-  return <a target="_blank" rel="noopener noreferrer" href={href} {...rest} />
+  return (
+    <a target="_blank" rel="noopener noreferrer" href={href} {...rest}>
+      this Link is deprecatedthis Link is deprecated
+    </a>
+  )
 }
 
 export default CustomLink
