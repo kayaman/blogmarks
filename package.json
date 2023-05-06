@@ -9,7 +9,9 @@
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "eslint --ext .js,.ts,.jsx,.tsx",
-    "lint-fix": "",
+    "lint:fix": "eslint -- --fix --ext TODO",
+    "prettier": "npx prettier components layouts pages types --check",
+    "prettier:fix": "npm run prettier -- --write",
     "old-lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
