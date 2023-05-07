@@ -9,10 +9,22 @@ export default {
       type: 'url',
     },
     {
-      name: 'tag',
-      title: 'Tag',
-      type: 'reference',
-      to: [{type: 'tag'}],
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {
+              type: 'tag',
+            },
+            {
+              incoming: 'tag',
+            },
+          ],
+        },
+      ],
     },
   ],
 }
