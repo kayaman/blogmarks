@@ -1,30 +1,28 @@
-export default {
+import {defineType, defineField, defineArrayMember} from 'sanity'
+
+const bookmark = defineType({
   name: 'bookmark',
   type: 'document',
   title: 'Bookmark',
   fields: [
-    {
+    defineField({
       name: 'link',
-      title: 'link',
+      title: 'Link',
       type: 'url',
-    },
-    {
+    }),
+    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',
       of: [
-        {
+        defineArrayMember({
           type: 'reference',
-          to: [
-            {
-              type: 'tag',
-            },
-            {
-              incoming: 'tag',
-            },
-          ],
-        },
+          name: 'tag',
+          to: [{type: 'tag'}],
+        }),
       ],
-    },
+    }),
   ],
-}
+})
+
+export default bookmark
