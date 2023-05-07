@@ -2,11 +2,12 @@ import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
+import 'dotenv/config'
 
 export default defineConfig([
   {
-    projectId: 'zyofsvoi',
-    dataset: 'production',
+    projectId: process.env.SANITY_PROJECT_ID,
+    dataset: process.env.SANITY_DATASET_ENV,
     name: 'bookmarks-prod',
     basePath: '/admin',
     title: 'Production',

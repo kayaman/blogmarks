@@ -1,13 +1,14 @@
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/components/*": ["components/*"],
-      "@/data/*": ["data/*"],
-      "@/layouts/*": ["layouts/*"],
-      "@/lib/*": ["lib/*"],
-      "@/css/*": ["css/*"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
-    }
-  }
-}
+// {
+//   "compilerOptions": {
+//     "baseUrl": ".",
+//     "paths": {
+//       "@/components/*": ["components/*"],
+//       "@/data/*": ["data/*"],
+//       "@/layouts/*": ["layouts/*"],
+//       "@/lib/*": ["lib/*"],
+//       "@/css/*": ["css/*"],
+//       "contentlayer/generated": ["./.contentlayer/generated"]
+//     }
+//   }
+// }
+//#markedForDeletion
