@@ -5,7 +5,7 @@ import {formatDate} from 'pliny/utils/formatDate'
 import {createClient} from 'next-sanity'
 import clientConfig from '@/sanity/clientConfig'
 
-const MAX_DISPLAY = 5 // TODO: implement pagination
+const MAX_DISPLAY = 1000 // TODO: implement pagination
 
 const client = createClient(clientConfig)
 
