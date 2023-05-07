@@ -55,12 +55,12 @@ export default function Home({bookmarks}) {
                           </div>
                         </div>
                         <div className="text-base font-medium leading-6">
-                          {/* <Link
-                          href={`/tags/${tag.name}`}
-                          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                          <a
+                            href={`/tags/}`}
+                            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                           >
-                          Read more &rarr;
-                        </Link> */}
+                            Read more &rarr;
+                          </a>
                         </div>
                       </div>
                     </div>
