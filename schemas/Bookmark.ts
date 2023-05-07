@@ -18,7 +18,7 @@ const bookmark = defineType({
         defineArrayMember({
           type: 'reference',
           name: 'tag',
-          to: [{type: 'bookmark'}],
+          to: [{type: 'tag'}],
         }),
       ],
     }),
