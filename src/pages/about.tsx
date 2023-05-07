@@ -5,7 +5,7 @@ import {MDXLayoutRenderer} from 'pliny/mdx-components'
 const DEFAULT_LAYOUT = 'AuthorLayout'
 
 export const getStaticProps = async () => {
-  const author = allAuthors.find((p) => p.slug === 'default')
+  const author = 'Marco Antonio Gonzalez Junior'
   return {props: {author}}
 }
 
