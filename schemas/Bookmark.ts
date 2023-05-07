@@ -1,18 +1,18 @@
 export default {
-  name: "bookmark",
-  type: "document",
-  title: "Bookmark",
+  name: 'bookmark',
+  type: 'document',
+  title: 'Bookmark',
   fields: [
     {
-      name: "link",
-      title: "link",
-      type: "url",
+      name: 'link',
+      title: 'link',
+      type: 'url',
     },
     {
-      name: "tags",
-      title: "Tag",
-      type: "reference",
-      to: [{ type: "tag" }],
-    }
-  ]
+      name: 'tag',
+      title: 'Tag',
+      type: 'reference',
+      to: [{type: 'tag'}],
+    },
+  ],
 }
