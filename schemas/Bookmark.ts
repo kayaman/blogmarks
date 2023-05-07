@@ -11,6 +11,16 @@ const bookmark = defineType({
       type: 'url',
     }),
     defineField({
+      name: 'name',
+      title: 'Name',
+      type: 'url',
+    }),
+    defineField({
+      name: 'private',
+      title: 'Private',
+      type: 'boolean',
+    }),
+    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',
@@ -23,6 +33,9 @@ const bookmark = defineType({
       ],
     }),
   ],
+  initialValue: {
+    private: false,
+  },
 })
 
 export default bookmark
