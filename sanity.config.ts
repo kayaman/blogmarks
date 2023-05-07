@@ -19,7 +19,7 @@ export default defineConfig([
     projectId: 'zyofsvoi',
     dataset: 'development',
     name: 'bookmarks-dev',
-    basePath: '/admin',
+    basePath: '/dev-admin',
     title: 'Development',
     plugins: [deskTool(), visionTool()],
     schema: {
