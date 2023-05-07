@@ -1,30 +1,16 @@
-export default {
+import {defineType, defineField, defineArrayMember} from 'sanity'
+
+const tag = defineType({
   name: 'tag',
   type: 'document',
   title: 'Tag',
   fields: [
-    {
+    defineField({
       name: 'name',
       type: 'string',
       title: 'Tag',
-    },
-    {
-      name: 'bookmarks',
-      title: 'Bookmarks',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [
-            {
-              type: 'bookmark',
-            },
-            {
-              incoming: 'bookmark',
-            },
-          ],
-        },
-      ],
-    },
+    }),
   ],
-}
+})
+
+export default tag
