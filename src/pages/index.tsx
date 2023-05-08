@@ -4,6 +4,7 @@ import siteMetadata from '@/data/siteMetadata'
 import {formatDate} from 'pliny/utils/formatDate'
 import {createClient} from 'next-sanity'
 import clientConfig from '@/sanity/clientConfig'
+import {BookmarkLink} from '@/components/BookmarkLink'
 
 const MAX_DISPLAY = 1000 // TODO: implement pagination
 
@@ -25,8 +26,7 @@ export default function Home({bookmarks}) {
           {!bookmarks && 'No bookmarks found.'}
           {bookmarks &&
             bookmarks.slice(0, MAX_DISPLAY).map((bookmark) => {
-              const {_id, link, _createdAt: date, tags} = bookmark
-
+              const {_id, link, title, _createdAt: date, tags} = bookmark
               return (
                 <li key={_id} className="py-8">
                   <article>
@@ -41,9 +41,11 @@ export default function Home({bookmarks}) {
                         <div className="space-y-6">
                           <div>
                             <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                              <Link href={link} className="text-gray-900 dark:text-gray-100">
-                                {link}
-                              </Link>
+                              <BookmarkLink
+                                href={link}
+                                title={title}
+                                className="text-lg antialiased text-gray-900 dark:text-gray-100"
+                              />
                             </h2>
 
                             <div className="flex flex-wrap">
@@ -87,7 +89,10 @@ export default function Home({bookmarks}) {
 
 export async function getStaticProps() {
   const bookmarks = await client.fetch(
-    `*[_type == 'bookmark']{_id, link, _createdAt, tags[]->{_id, name}}`
+    `*[_type == 'bookmark' && private == false]
+        {_id, link, title, _createdAt, tags[]->{_id, name}}
+        | order(_createdAt desc)
+    `
   )
 
   return {

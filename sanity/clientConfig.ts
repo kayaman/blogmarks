@@ -1,6 +1,6 @@
 const clientConfig = {
   projectId: 'zyofsvoi',
-  dataset: 'production',
+  dataset: 'development', // 'production
   apiVersion: '2023-05-06',
   useCdn: false,
 }
