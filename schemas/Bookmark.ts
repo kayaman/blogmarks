@@ -11,9 +11,9 @@ const bookmark = defineType({
       type: 'url',
     }),
     defineField({
-      name: 'name',
-      title: 'Name',
-      type: 'url',
+      name: 'title',
+      title: 'Title',
+      type: 'string',
     }),
     defineField({
       name: 'private',
