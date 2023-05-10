@@ -1,7 +1,4 @@
 import Link from 'next/link'
-import {getAllTags} from 'pliny/utils/contentlayer'
-import {GetStaticProps} from 'next'
-import {allBlogs} from 'contentlayer/generated'
 import type Tag from 'src/types/Tag'
 import clientConfig from '@/sanity/clientConfig'
 import {createClient} from 'next-sanity'
