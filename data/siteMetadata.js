@@ -11,7 +11,7 @@ const siteMetadata = {
   theme: 'system', // system, dark or light
   siteUrl: 'https://bookma.rco.sh',
   siteRepo: 'https://github.com/kayaman/bookmarks',
-  siteLogo: '/static/images/logo.png',
+  siteLogo: '/static/images/bookmark.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
   email: 'm@rco.sh',
