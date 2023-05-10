@@ -1,6 +1,6 @@
 const headerNavLinks = [
   {href: '/tags', title: 'Tags'},
-  {href: '/projects', title: 'Projects'},
+  {href: '/tools', title: 'Tools'},
   {href: '/blog', title: 'Blog'},
   {href: '/about', title: 'About'},
 ]
