@@ -9,6 +9,10 @@ const bookmark = defineType({
       name: 'link',
       title: 'Link',
       type: 'url',
+      options: {
+        isUnique: true,
+        maxLength: 140,
+      },
     }),
     defineField({
       name: 'title',
