@@ -4,6 +4,7 @@ import {BookmarkLink} from '@/components/BookmarkLink'
 import Link from 'next/link'
 import {formatDate} from 'pliny/utils/formatDate'
 import {useState} from 'react'
+import TagLink from '@/components/TagLink'
 
 interface IBookmarksLayoutProps {
   bookmarks: Bookmark[]
@@ -16,12 +17,10 @@ const BookmarksLayout: React.FunctionComponent<IBookmarksLayoutProps> = (props) 
 
   const [searchValue, setSearchValue] = useState('')
 
-  const filteredBookmarks = []
-
-  // const filteredBookmarks = bookmarks.filter((bookmark) => {
-  //   const searchContent = bookmark.title + bookmark.link + bookmark.tags.join(' ')
-  //   return searchContent.toLowerCase().includes(searchValue.toLowerCase())
-  // }
+  const filteredBookmarks = bookmarks.filter((bookmark) => {
+    const searchContent = bookmark.title + bookmark.link + bookmark.tags.join(' ')
+    return searchContent.toLowerCase().includes(searchValue.toLowerCase())
+  })
 
   const displayBookmarks = bookmarks.length > 0 && !searchValue ? bookmarks : filteredBookmarks
 
@@ -61,7 +60,7 @@ const BookmarksLayout: React.FunctionComponent<IBookmarksLayoutProps> = (props) 
         </div>
         <ul>
           {!filteredBookmarks.length && 'No bookmarks found.'}
-          {bookmarks.map((bookmark) => {
+          {displayBookmarks.map((bookmark) => {
             const {_id, _createdAt, link, title, tags} = bookmark // tag wiped out, legacy blog code
             return (
               <li key={_id} className="py-4">
@@ -69,9 +68,9 @@ const BookmarksLayout: React.FunctionComponent<IBookmarksLayoutProps> = (props) 
                   <dl>
                     <dt className="sr-only">Created on</dt>
                     <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                      <time dateTime={_createdAt.toDateString()}>
-                        {formatDate(_createdAt.toDateString(), siteMetadata.locale)}
-                      </time>
+                      {/* <time dateTime={_createdAt}>
+                        {formatDate(_createdAt, siteMetadata.locale)}
+                      </time> */}
                     </dd>
                   </dl>
                   <div className="space-y-3 xl:col-span-3">
@@ -79,16 +78,17 @@ const BookmarksLayout: React.FunctionComponent<IBookmarksLayoutProps> = (props) 
                       <h3 className="text-2xl font-bold leading-8 tracking-tight">
                         <BookmarkLink
                           href={bookmark.link}
+                          title={title}
                           className="text-gray-900 dark:text-gray-100"
-                        >
-                          {bookmark.title}
-                        </BookmarkLink>
+                        />
                       </h3>
                       <div className="flex flex-wrap">
-                        <Link href={link}>{title}</Link>
+                        {tags && tags.map((tag) => <TagLink key={tag._id} name={tag.name} />)}
+                      </div>
+                      <div className="flex flex-wrap">
+                        <BookmarkLink href={link}>{title}</BookmarkLink>
                       </div>
                     </div>
-                    <div className="prose max-w-none text-gray-500 dark:text-gray-400">{title}</div>
                   </div>
                 </article>
               </li>
