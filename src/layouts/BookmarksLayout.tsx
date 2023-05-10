@@ -3,20 +3,28 @@ import {BookmarkLink} from '@/components/BookmarkLink'
 import {useState} from 'react'
 import TagLink from '@/components/TagLink'
 import siteMetadata from '@/data/siteMetadata'
+import Pagination from '@/components/Pagination'
+
+interface IPaginationProps {
+  totalPages: number
+  currentPage: number
+}
 
 interface IBookmarksLayoutProps {
   bookmarks: Bookmark[]
   title: string
   currentTag?: string
+  pagination?: IPaginationProps
 }
 
 const BookmarksLayout: React.FunctionComponent<IBookmarksLayoutProps> = (props) => {
-  const {bookmarks, title, currentTag} = props
+  const {bookmarks, title, currentTag, pagination} = props
+  console.log('BookmarksLayout:', pagination)
 
+  const PAGE_SIZE = siteMetadata.pageSize
   const [searchValue, setSearchValue] = useState('')
 
   const filteredBookmarks = bookmarks.filter((bookmark) => {
-    console.log(bookmark)
     let searchContent = bookmark.title + bookmark.link
     searchContent += bookmark.tags && bookmark.tags.length > 0 ? bookmark.tags.join(' ') : ''
     return searchContent.toLowerCase().includes(searchValue.toLowerCase())
@@ -66,7 +74,7 @@ const BookmarksLayout: React.FunctionComponent<IBookmarksLayoutProps> = (props) 
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!filteredBookmarks.length && 'No bookmarks found.'}
-          {displayBookmarks.map((bookmark) => {
+          {displayBookmarks.slice(0, PAGE_SIZE).map((bookmark) => {
             const {_id, _createdAt, link, title, tags} = bookmark // tag wiped out, legacy blog code
             return (
               <li key={_id} className="py-4">
@@ -102,6 +110,9 @@ const BookmarksLayout: React.FunctionComponent<IBookmarksLayoutProps> = (props) 
           })}
         </ul>
       </div>
+      {pagination && pagination.totalPages > 1 && !searchValue && (
+        <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
+      )}
     </>
   )
 }

@@ -38,6 +38,5 @@ export async function getStaticPaths() {
   const paths = tags.map((tag) => ({
     params: {name: tag.name},
   }))
-
   return {paths, fallback: false}
 }
