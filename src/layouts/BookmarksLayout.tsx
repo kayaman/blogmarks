@@ -19,7 +19,8 @@ const BookmarksLayout: React.FunctionComponent<IBookmarksLayoutProps> = (props) 
 
   const filteredBookmarks = bookmarks.filter((bookmark) => {
     console.log(bookmark)
-    const searchContent = bookmark.title + bookmark.link + bookmark.tags.join(' ')
+    let searchContent = bookmark.title + bookmark.link
+    searchContent += bookmark.tags && bookmark.tags.length > 0 ? bookmark.tags.join(' ') : ''
     return searchContent.toLowerCase().includes(searchValue.toLowerCase())
   })
 
@@ -59,7 +60,7 @@ const BookmarksLayout: React.FunctionComponent<IBookmarksLayoutProps> = (props) 
             </svg>
           </div>
         </div>
-        <ul>
+        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!filteredBookmarks.length && 'No bookmarks found.'}
           {displayBookmarks.map((bookmark) => {
             const {_id, _createdAt, link, title, tags} = bookmark // tag wiped out, legacy blog code
