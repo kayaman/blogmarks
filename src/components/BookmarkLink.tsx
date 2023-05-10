@@ -14,8 +14,6 @@ export interface IBookmarkLinkProps
 export const BookmarkLink: React.FunctionComponent<IBookmarkLinkProps> = (props) => {
   const {href, title, className, target, rel, ariaLabel} = props
 
-  console.log('title: ', title)
-
   let _style = className || '' // = React.CSSProperties
   let _title = href
   let _target = '_blank'

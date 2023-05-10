@@ -1,12 +1,12 @@
 import {InferGetStaticPropsType} from 'next'
 import {createClient} from 'next-sanity'
 import clientConfig from '@/sanity/clientConfig'
-import SimpleListLayout from 'src/layouts/SimpleListLayout'
+import BookmarksLayout from '@/layouts/BookmarksLayout'
 
 export default function Tag({tagName, bookmarks}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <SimpleListLayout bookmarks={bookmarks} currentTag={tagName} />
+      <BookmarksLayout bookmarks={bookmarks} currentTag={tagName} title={tagName} />
     </>
   )
 }
@@ -16,8 +16,9 @@ const client = createClient(clientConfig)
 export async function getStaticProps({params}) {
   const {name: tagName} = params
   const data = await client.fetch(
-    `*[_type=="tag" && name==$tagName ]{
-      "bookmarks": *[_type=='bookmark' && references(^._id)]{ name, link }
+    `*[_type=='tag' && name==$tagName ]
+      {_id, name, 'bookmarks': 
+      *[_type=='bookmark' && references(^._id)]{_id, _createdAt, link, title, 'tags': tags[]-> }
     }`,
     {tagName: tagName}
   )
