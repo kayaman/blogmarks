@@ -89,7 +89,7 @@ export default function Home({bookmarks}) {
 
 export async function getStaticProps() {
   const bookmarks = await client.fetch(
-    `*[_type == 'bookmark' && private == false]
+    `*[_type == 'bookmark' && private != true]
         {_id, link, title, _createdAt, tags[]->{_id, name}}
         | order(_createdAt desc)
     `
