@@ -6,7 +6,7 @@ const siteMetadata = {
   owner: 'Marco Antonio Gonzalez Junior',
   author: 'Tails Azimuth',
   headerTitle: 'my Bookmarks',
-  description: 'My collection of bookmarks',
+  description: "I don't know. But I know where to known.",
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://bookma.rco.sh',
@@ -23,6 +23,7 @@ const siteMetadata = {
   locale: 'en-US',
   toolsPageDescription: 'lorem ipsum lorem loem',
   toolsPageHeading: 'Handy #tools',
+  homePageTitle: 'My latests findings',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
