@@ -22,7 +22,6 @@ export async function getStaticProps() {
       {tagName: 'tools'}
     )) || []
   const {bookmarks} = response[0] ? response[0] : {bookmarks: []}
-  console.log('bookmarks: ', bookmarks)
   return {
     props: {
       bookmarks,

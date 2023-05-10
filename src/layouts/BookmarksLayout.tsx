@@ -9,15 +9,16 @@ import TagLink from '@/components/TagLink'
 interface IBookmarksLayoutProps {
   bookmarks: Bookmark[]
   title: string
-  tagName?: string
+  currentTag?: string
 }
 
 const BookmarksLayout: React.FunctionComponent<IBookmarksLayoutProps> = (props) => {
-  const {bookmarks, title, tagName} = props
+  const {bookmarks, title, currentTag} = props
 
   const [searchValue, setSearchValue] = useState('')
 
   const filteredBookmarks = bookmarks.filter((bookmark) => {
+    console.log(bookmark)
     const searchContent = bookmark.title + bookmark.link + bookmark.tags.join(' ')
     return searchContent.toLowerCase().includes(searchValue.toLowerCase())
   })
