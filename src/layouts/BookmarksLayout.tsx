@@ -1,8 +1,5 @@
-import siteMetadata from '@/data/siteMetadata'
 import Bookmark from '@/types/Bookmark'
 import {BookmarkLink} from '@/components/BookmarkLink'
-import Link from 'next/link'
-import {formatDate} from 'pliny/utils/formatDate'
 import {useState} from 'react'
 import TagLink from '@/components/TagLink'
 
