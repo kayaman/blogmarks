@@ -1,17 +1,23 @@
+import siteMetadata from '@/data/siteMetadata'
 import BookmarksLayout from '@/layouts/BookmarksLayout'
 import clientConfig from '@/sanity/clientConfig'
 import {createClient} from 'next-sanity'
+import Bookmark from '@/types/Bookmark'
 
-const Tools = ({bookmarks, title}) => {
+interface IToolsProps {
+  bookmarks: Bookmark[]
+  title: string
+}
+
+const Tools = ({bookmarks, title}: IToolsProps) => {
   return <BookmarksLayout bookmarks={bookmarks} title={title} />
 }
 
 export default Tools
 
 const client = createClient(clientConfig)
-
 export async function getStaticProps() {
-  const title = 'Handy #tools'
+  const title = siteMetadata.toolsPageTitle
   const response =
     (await client.fetch(
       `*[_type=='tag' && name==$tagName ]

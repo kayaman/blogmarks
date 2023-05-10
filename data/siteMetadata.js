@@ -24,6 +24,8 @@ const siteMetadata = {
   toolsPageDescription: 'lorem ipsum lorem loem',
   toolsPageHeading: 'Handy #tools',
   homePageTitle: 'My latests findings',
+  referencesPageTitle: 'References',
+  toolsPageTitle: 'Handy #tools',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
