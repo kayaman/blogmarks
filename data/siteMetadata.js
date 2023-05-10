@@ -9,8 +9,8 @@ const siteMetadata = {
   description: 'My collection of bookmarks',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteUrl: 'https://bookma.rco.sh',
+  siteRepo: 'https://github.com/kayaman/bookmarks',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
