@@ -30,6 +30,9 @@
       "@/data/*": [
         "data/*"
       ],
+      "@/server/*": [
+        "src/server/*"
+      ],
       "@/layouts/*": [
         "src/layouts/*"
       ],
