@@ -31,12 +31,24 @@ dependencies:
   '@trpc/server':
     specifier: ^10.25.1
     version: 10.25.1
+  any-date-parser:
+    specifier: ^1.5.4
+    version: 1.5.4
   autoprefixer:
     specifier: ^10.4.13
     version: 10.4.13(postcss@8.4.16)
   contentlayer:
     specifier: 0.3.0
     version: 0.3.0(esbuild@0.17.5)(typescript@4.8.3)
+  date-fns:
+    specifier: ^2.30.0
+    version: 2.30.0
+  dateformat:
+    specifier: ^5.0.3
+    version: 5.0.3
+  dayjs:
+    specifier: ^1.11.7
+    version: 1.11.7
   esbuild:
     specifier: 0.17.5
     version: 0.17.5
@@ -4717,6 +4729,10 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
+  /any-date-parser@1.5.4:
+    resolution: {integrity: sha512-S4gl9UmXNk9XXSQxp5w5harUD6aM0fepyL3dZM/B3znX57sWf792hS2UvvCFIHECfpsqfKbQ+cqWBky4AKyRIg==}
+    dev: false
+
   /anymatch@3.1.3:
     resolution: {integrity: sha512-KMReFUr0B4t+D+OBkjR3KYqvocp2XaSzO55UcB6mgQMd3KbcE+mWTyvVV7D/zsdEbNnV6acZUutkiHQXvTr1Rw==}
     engines: {node: '>= 8'}
@@ -5630,6 +5646,15 @@ packages:
 
   /date-now@1.0.1:
     resolution: {integrity: sha512-yiizelQCqYLUEVT4zqYihOW6Ird7Qyc6fD3Pv5xGxk4+Jz0rsB1dMN2KyNV6jgOHYh5K+sPGCSOknQN4Upa3pg==}
+    dev: false
+
+  /dateformat@5.0.3:
+    resolution: {integrity: sha512-Kvr6HmPXUMerlLcLF+Pwq3K7apHpYmGDVqrxcDasBg86UcKeTSNWbEzU8bwdXnxnR44FtMhJAxI4Bov6Y/KUfA==}
+    engines: {node: '>=12.20'}
+    dev: false
+
+  /dayjs@1.11.7:
+    resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==}
     dev: false
 
   /debounce@1.0.0:
