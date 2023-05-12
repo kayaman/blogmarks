@@ -1,8 +1,6 @@
 import siteMetadata from '@/data/siteMetadata'
 import {useRouter} from 'next/router'
 
-const PAGE_SIZE = siteMetadata.pageSize
-
 interface PaginationProps {
   totalPages: number
   currentPage: number

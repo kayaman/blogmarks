@@ -1,14 +1,8 @@
 import Link from 'next/link'
-import type Tag from 'src/types/Tag'
-import clientConfig from '@/sanity/clientConfig'
-import {createClient} from 'next-sanity'
 import TagLink from 'src/components/TagLink'
+import {getAllTags} from '@/server/persistence/sanityRepository'
 
-type TagsProps = {
-  tags: Tag[]
-}
-
-export default function Tags({tags}) {
+const Tags = ({tags}) => {
   return (
     <>
       <div className="flex flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
@@ -38,12 +32,13 @@ export default function Tags({tags}) {
   )
 }
 
-const client = createClient(clientConfig)
 export const getStaticProps = async () => {
-  const tags: TagsProps[] = await client.fetch(`*[_type == 'tag']{_id, name}`)
+  const tags = await getAllTags()
   return {
     props: {
       tags,
     },
   }
 }
+
+export default Tags

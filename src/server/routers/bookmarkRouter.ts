@@ -1,5 +1,5 @@
 import {procedure, router} from '../trpc'
-import {getAll as getAllBookmarks} from '@/server/providers/bookmarksProvider'
+import {getAllBookmarks} from '@/server/persistence/sanityRepository'
 
 export const bookmarksRouter = router({
   getAll: procedure.query(() => {
