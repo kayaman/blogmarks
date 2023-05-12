@@ -37,5 +37,6 @@ export async function getStaticProps() {
       title,
       pagination,
     },
+    revalidate: 60,
   }
 }
