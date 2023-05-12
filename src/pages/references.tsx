@@ -9,7 +9,7 @@ interface IRerencesProps {
 }
 
 const References = ({bookmarks, title}: IRerencesProps) => {
-  return <></> //<BookmarksLayout bookmarks={bookmarks} title={title} />
+  return <BookmarksLayout bookmarks={bookmarks} title={title} />
 }
 
 export async function getStaticProps() {
