@@ -13,14 +13,11 @@ interface IPaginationProps {
 interface IBookmarksLayoutProps {
   bookmarks: Bookmark[]
   title: string
-  currentTag?: string
   pagination?: IPaginationProps
 }
 
 const BookmarksLayout: React.FunctionComponent<IBookmarksLayoutProps> = (props) => {
-  const {bookmarks, title, currentTag, pagination} = props
-  console.log('BookmarksLayout:', pagination)
-
+  const {bookmarks, title, pagination} = props
   const PAGE_SIZE = siteMetadata.pageSize
   const [searchValue, setSearchValue] = useState('')
 

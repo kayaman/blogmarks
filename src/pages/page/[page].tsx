@@ -1,27 +1,12 @@
 import siteMetadata from '@/data/siteMetadata'
-import clientConfig from '@/sanity/clientConfig'
-import Bookmark from '@/types/Bookmark'
-import {createClient} from 'next-sanity'
 import BookmarksLayout from '@/layouts/BookmarksLayout'
-
-// interface IPaginationProps {
-//   totalPages: number
-//   currentPage: number
-// }
-
-// interface IPaginatedBookmarksListProps {
-//   page: number
-//   bookmarks: Bookmark[]
-//   title: string
-//   pagination?: IPaginationProps
-// }
+import {getAllBookmarksCount, getAllBookmarksPaginated} from '@/server/persistence/sanityRepository'
 
 const PaginatedBookmarksList = ({bookmarks, title, pagination}) => {
   return <BookmarksLayout bookmarks={bookmarks} title={title} pagination={pagination} />
 }
 
 const PAGE_SIZE = siteMetadata.pageSize
-const client = createClient(clientConfig)
 
 export const getStaticProps = async (context) => {
   const {
@@ -34,14 +19,9 @@ export const getStaticProps = async (context) => {
     start = mult * PAGE_SIZE
     end = start + PAGE_SIZE
   }
-  const total = await client.fetch(`count(*[_type == 'bookmark' && private != true])`)
-  const bookmarks = await client.fetch(
-    `*[_type == 'bookmark' && private != true]
-      {_id, link, title, _createdAt, _updatedAt,'tags': tags[]->{_id, name}}
-      | order(_updatedAt desc)[$start...$end]
-    `,
-    {start: start, end: end}
-  )
+  const total = await getAllBookmarksCount()
+  const bookmarks = await getAllBookmarksPaginated(start, end)
+
   const title = siteMetadata.homePageTitle
   const pagination = {
     currentPage: parseInt(page),
@@ -58,8 +38,9 @@ export const getStaticProps = async (context) => {
 }
 
 export const getStaticPaths = async () => {
-  const total = await client.fetch(`count(*[_type == 'bookmark' && private != true])`)
-  const paths = Array.from(Array(total)).map((_, index) => ({
+  const numRecords = await getAllBookmarksCount()
+  const numPages = Math.ceil(numRecords / PAGE_SIZE)
+  const paths = Array.from(Array(numPages)).map((_, index) => ({
     params: {
       page: String(index),
     },
