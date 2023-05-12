@@ -1,0 +1,50 @@
+[1mdiff --git a/.prettierignore b/.prettierignore[m
+[1mindex e69de29..76add87 100644[m
+[1m--- a/.prettierignore[m
+[1m+++ b/.prettierignore[m
+[36m@@ -0,0 +1,2 @@[m
+[32m+[m[32mnode_modules[m
+[32m+[m[32mdist[m
+\ No newline at end of file[m
+[1mdiff --git a/package.json b/package.json[m
+[1mindex 411ff3e..eab0ac7 100755[m
+[1m--- a/package.json[m
+[1m+++ b/package.json[m
+[36m@@ -29,8 +29,6 @@[m
+     "any-date-parser": "^1.5.4",[m
+     "autoprefixer": "^10.4.13",[m
+     "contentlayer": "0.3.0",[m
+[31m-    "date-fns": "^2.30.0",[m
+[31m-    "dateformat": "^5.0.3",[m
+     "dayjs": "^1.11.7",[m
+     "esbuild": "0.17.5",[m
+     "github-slugger": "^1.4.0",[m
+[1mdiff --git a/pnpm-lock.yaml b/pnpm-lock.yaml[m
+[1mindex c7d91c9..5de0af3 100644[m
+[1m--- a/pnpm-lock.yaml[m
+[1m+++ b/pnpm-lock.yaml[m
+[36m@@ -40,12 +40,6 @@[m [mdependencies:[m
+   contentlayer:[m
+     specifier: 0.3.0[m
+     version: 0.3.0(esbuild@0.17.5)(typescript@4.8.3)[m
+[31m-  date-fns:[m
+[31m-    specifier: ^2.30.0[m
+[31m-    version: 2.30.0[m
+[31m-  dateformat:[m
+[31m-    specifier: ^5.0.3[m
+[31m-    version: 5.0.3[m
+   dayjs:[m
+     specifier: ^1.11.7[m
+     version: 1.11.7[m
+[36m@@ -5648,11 +5642,6 @@[m [mpackages:[m
+     resolution: {integrity: sha512-yiizelQCqYLUEVT4zqYihOW6Ird7Qyc6fD3Pv5xGxk4+Jz0rsB1dMN2KyNV6jgOHYh5K+sPGCSOknQN4Upa3pg==}[m
+     dev: false[m
+ [m
+[31m-  /dateformat@5.0.3:[m
+[31m-    resolution: {integrity: sha512-Kvr6HmPXUMerlLcLF+Pwq3K7apHpYmGDVqrxcDasBg86UcKeTSNWbEzU8bwdXnxnR44FtMhJAxI4Bov6Y/KUfA==}[m
+[31m-    engines: {node: '>=12.20'}[m
+[31m-    dev: false[m
+[31m-[m
+   /dayjs@1.11.7:[m
+     resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==}[m
+     dev: false[m
