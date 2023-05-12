@@ -33,5 +33,6 @@ export async function getStaticProps() {
       bookmarks,
       title,
     },
+    revalidate: 60,
   }
 }
