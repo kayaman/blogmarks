@@ -8,7 +8,7 @@ const siteMetadata = {
   headerTitle: 'my Bookmarks',
   description: "I don't know. But I know where to known.",
   language: 'en-us',
-  theme: 'system', // system, dark or light
+  theme: 'dark', // system, dark or light
   siteUrl: 'https://bookma.rco.sh',
   siteRepo: 'https://github.com/kayaman/bookmarks',
   siteLogo: '/static/images/bookmark.png',
