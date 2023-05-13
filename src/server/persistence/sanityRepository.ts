@@ -29,9 +29,24 @@ export const getAllBookmarksByTagName = async (tagName: string): Promise<Bookmar
 }
 
 export const getAllBookmarks = async (): Promise<Bookmark[]> => {
-  throw new Error('Method not implemented.')
+  return await sanityClient.fetch(`*[_type == 'bookmark' && private != true]`)
 }
 
 export const getAllTags = async (): Promise<Tag[]> => {
   return await sanityClient.fetch(`*[_type == 'tag']{_id, name}|order(_updatedAt desc)`)
+}
+
+export const createBookmark = async (params): Promise<Bookmark> => {
+  console.log('==============================================repooooo')
+  const bookmark = {
+    _type: 'bookmark',
+    link: params.link,
+    title: params.title,
+    private: params.private || false,
+    tags: [],
+    _createdAt: Date.now(),
+    _updatedAt: Date.now(),
+  }
+
+  return await sanityClient.create(bookmark)
 }
