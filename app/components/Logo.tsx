@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {useTheme} from 'next-themes'
 import {Image} from 'sanity'
 
@@ -8,7 +8,6 @@ interface Logo
 }
 
 const Logo: React.FunctionComponent<Logo> = (props) => {
-  const [logoTheme, setLogoTheme] = useState()
   const {theme, setTheme, resolvedTheme} = useTheme()
   const logoDarkTheme = '/images/bookmarks_light.png'
   const logoLightTheme = '/images/bookmarks_dark.png'

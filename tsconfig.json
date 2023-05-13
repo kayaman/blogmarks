@@ -22,22 +22,22 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": [
-        "src/components/*"
+        "app/components/*"
       ],
       "@/data/*": [
         "data/*"
       ],
       "@/server/*": [
-        "src/server/*"
+        "app/server/*"
       ],
       "@/layouts/*": [
-        "src/layouts/*"
+        "app/layouts/*"
       ],
       "@/lib/*": [
         "lib/*"
       ],
       "@/css/*": [
-        "src/css/*"
+        "app/css/*"
       ],
       "@/config/*": [
         "config/*"
@@ -46,11 +46,14 @@
         "sanity/*"
       ],
       "@/types/*": [
-        "src/types/*"
+        "app/types/*"
       ],
       "contentlayer/generated": [
         "./.contentlayer/generated"
-      ]
+      ],
+      "@/*": [
+        "/*"
+      ],
     },
     "plugins": [
       {

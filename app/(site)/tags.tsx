@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import TagLink from 'src/components/TagLink'
+import TagLink from 'app/components/TagLink'
 import {getAllTags} from '@/server/persistence/sanityRepository'
 
 const Tags = ({tags}) => {

@@ -4,11 +4,11 @@ import {formatDate} from 'pliny/utils/formatDate'
 import {CoreContent} from 'pliny/utils/contentlayer'
 import type {Blog} from 'contentlayer/generated'
 import Link from 'next/link'
-import PageTitle from 'src/components/PageTitle'
-import SectionContainer from 'src/components/SectionContainer'
-import {BlogSEO} from 'src/components/SEO'
+import PageTitle from 'app/components/PageTitle'
+import SectionContainer from 'app/components/SectionContainer'
+import {BlogSEO} from 'app/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
-import ScrollTopAndComment from 'src/components/ScrollTopAndComment'
+import ScrollTopAndComment from 'app/components/ScrollTopAndComment'
 
 interface LayoutProps {
   content: CoreContent<Blog>

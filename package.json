@@ -13,7 +13,7 @@
     "prettier": "npx prettier components layouts pages types --check",
     "prettier:fix": "npm run prettier -- --write",
     "old-lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+    "prettier-format": "prettier --config .prettierrc 'app/**/*.ts' --write"
   },
   "dependencies": {
     "@next/bundle-analyzer": "13.1.6",
@@ -48,7 +48,6 @@
     "reading-time": "1.5.0",
     "rehype-autolink-headings": "^6.1.0",
     "rehype-citation": "^0.5.0",
-    "rehype-katex": "^6.0.2",
     "rehype-preset-minify": "6.0.0",
     "rehype-prism-plus": "^1.5.0",
     "rehype-slug": "^5.0.0",

@@ -3,5 +3,7 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
-  "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+  "typescript.tsdk": "node_modules/.pnpm/typescript@4.8.3/node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }

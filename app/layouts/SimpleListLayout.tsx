@@ -1,5 +1,5 @@
-import Bookmark from 'src/types/Bookmark'
-import Tag from 'src/types/Tag'
+import Bookmark from 'app/types/Bookmark'
+import Tag from 'app/types/Tag'
 import {useState} from 'react'
 
 interface SimpleListLayoutProps {

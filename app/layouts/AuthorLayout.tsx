@@ -1,8 +1,8 @@
 import {ReactNode} from 'react'
 import type {Authors} from 'contentlayer/generated'
-import SocialIcon from 'src/components/social-icons'
-import Image from 'src/components/Image'
-import {PageSEO} from 'src/components/SEO'
+import SocialIcon from 'app/components/social-icons'
+import Image from 'app/components/Image'
+import {PageSEO} from 'app/components/SEO'
 
 interface Props {
   children: ReactNode
