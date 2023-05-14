@@ -4,11 +4,17 @@ import {useState} from 'react'
 import TagLink from '@/components/TagLink'
 import siteMetadata from '@/data/siteMetadata'
 import Pagination from '@/components/Pagination'
+import {search} from '@/server/services/search'
 
 const BookmarksLayout = (props) => {
   const {bookmarks, title, pagination} = props
   const PAGE_SIZE = siteMetadata.pageSize
   const [searchValue, setSearchValue] = useState('')
+
+  // const filteredBookmarks = () => {
+  //   console.log(searchValue.toLowerCase())
+  //   return search(searchValue.toLowerCase())
+  // }
 
   const filteredBookmarks = bookmarks.filter((bookmark) => {
     let searchContent = bookmark.title + bookmark.link

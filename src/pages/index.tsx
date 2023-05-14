@@ -2,6 +2,7 @@
 import BookmarksLayout from '@/layouts/BookmarksLayout'
 import siteMetadata from '@/data/siteMetadata'
 import {getAllBookmarksCount, getAllBookmarksPaginated} from '@/server/persistence/sanityRepository'
+import {search} from '@/server/services/search'
 
 const PAGE_SIZE = siteMetadata.pageSize
 
@@ -17,6 +18,10 @@ export async function getStaticProps() {
     currentPage: 1,
     totalPages: Math.ceil(total / PAGE_SIZE),
   }
+
+  const searchResult = await search('vim')
+  console.log(searchResult)
+  console.log(typeof searchResult[0])
 
   return {
     props: {
