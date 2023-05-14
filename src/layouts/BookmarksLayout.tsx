@@ -1,4 +1,3 @@
-import Bookmark from '@/types/Bookmark'
 import {BookmarkLink} from '@/components/BookmarkLink'
 import {CreatedAt} from '@/components/CreatedAt'
 import {useState} from 'react'
@@ -6,18 +5,7 @@ import TagLink from '@/components/TagLink'
 import siteMetadata from '@/data/siteMetadata'
 import Pagination from '@/components/Pagination'
 
-interface IPaginationProps {
-  totalPages: number
-  currentPage: number
-}
-
-interface IBookmarksLayoutProps {
-  bookmarks: Bookmark[]
-  title: string
-  pagination?: IPaginationProps
-}
-
-const BookmarksLayout: React.FunctionComponent<IBookmarksLayoutProps> = (props) => {
+const BookmarksLayout = (props) => {
   const {bookmarks, title, pagination} = props
   const PAGE_SIZE = siteMetadata.pageSize
   const [searchValue, setSearchValue] = useState('')
