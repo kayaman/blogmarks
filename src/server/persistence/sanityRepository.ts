@@ -1,6 +1,7 @@
-import Bookmark from '@/types/Bookmark'
+import Bookmark, {BookmarkInput, BookmarkOutput} from '@/types/Bookmark'
 import sanityClient from './sanityClient'
 import Tag from '@/types/Tag'
+import Tag from 'schemas/Tag'
 
 export const getAllBookmarksCount = async (): Promise<number> => {
   return await sanityClient.fetch(`count(*[_type == 'bookmark' && private != true])`)
@@ -34,4 +35,11 @@ export const getAllBookmarks = async (): Promise<Bookmark[]> => {
 
 export const getAllTags = async (): Promise<Tag[]> => {
   return await sanityClient.fetch(`*[_type == 'tag']{_id, name}|order(_updatedAt desc)`)
+}
+export const create = async (bookmark: BookmarkInput): Promise<BookmarkOutput> => {
+  let created: BookmarkOutput
+  const result = await sanityClient.create(bookmark).then((result) => {
+    console.log(result)
+  })
+  return created
 }
