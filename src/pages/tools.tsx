@@ -1,14 +1,8 @@
 import siteMetadata from '@/data/siteMetadata'
 import BookmarksLayout from '@/layouts/BookmarksLayout'
-import Bookmark from '@/types/Bookmark'
 import {getAllBookmarksByTagName} from '@/server/persistence/sanityRepository'
 
-interface IToolsProps {
-  bookmarks: Bookmark[]
-  title: string
-}
-
-const Tools = ({bookmarks, title}: IToolsProps) => {
+const Tools = ({bookmarks, title}) => {
   return <BookmarksLayout bookmarks={bookmarks} title={title} />
 }
 

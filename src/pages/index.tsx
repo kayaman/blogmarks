@@ -6,11 +6,7 @@ import {getAllBookmarksCount, getAllBookmarksPaginated} from '@/server/persisten
 const PAGE_SIZE = siteMetadata.pageSize
 
 export default function Home({bookmarks, title, pagination}) {
-  return (
-    <>
-      <BookmarksLayout bookmarks={bookmarks} title={title} pagination={pagination} />
-    </>
-  )
+  return <BookmarksLayout bookmarks={bookmarks} title={title} pagination={pagination} />
 }
 
 export async function getStaticProps() {
