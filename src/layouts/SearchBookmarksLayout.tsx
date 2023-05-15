@@ -3,21 +3,15 @@ import {CreatedAt} from '@/components/CreatedAt'
 import {useState} from 'react'
 import TagLink from '@/components/TagLink'
 import siteMetadata from '@/data/siteMetadata'
-import Pagination from '@/components/Pagination'
+import {SearchInput} from '@/components/SearchInput'
 
-const BookmarksLayout = (props) => {
-  const {bookmarks, title, pagination} = props
-  const PAGE_SIZE = siteMetadata.pageSize
+const SearchBookmarksLayout = (props) => {
+  const {bookmarks, title, searchHandler} = props
   const [searchValue, setSearchValue] = useState('')
-
-  const filteredBookmarks = bookmarks.filter((bookmark) => {
-    let searchContent = bookmark.title + bookmark.link
-    searchContent += bookmark.tags && bookmark.tags.length > 0 ? bookmark.tags.join(' ') : ''
-    return searchContent.toLowerCase().includes(searchValue.toLowerCase())
-  })
-
+  const filteredBookmarks = []
   const displayBookmarks = bookmarks.length > 0 && !searchValue ? bookmarks : filteredBookmarks
-
+  // console.log('====================BOOKMARKS> ', bookmarks)
+  console.log('====================displayBookmarks> ', displayBookmarks)
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -26,14 +20,13 @@ const BookmarksLayout = (props) => {
             <h2 className="text-xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl sm:leading-10 md:text-4xl md:leading-14">
               {title}
             </h2>
-
             <div className="relative align-middle max-w-2xl">
               <label>
                 <span className="sr-only">Search bookmarks</span>
                 <input
                   aria-label="Search bookmarks"
                   type="text"
-                  onChange={(e) => setSearchValue(e.target.value)}
+                  onChange={searchHandler}
                   placeholder="Search bookmarks"
                   className="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
                 />
@@ -60,7 +53,7 @@ const BookmarksLayout = (props) => {
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!filteredBookmarks.length && 'No bookmarks found.'}
-          {displayBookmarks.slice(0, PAGE_SIZE).map((bookmark) => {
+          {displayBookmarks.map((bookmark) => {
             const {_id, _createdAt, link, title, tags} = bookmark // tag wiped out, legacy blog code
             return (
               <li key={_id} className="py-4">
@@ -89,11 +82,8 @@ const BookmarksLayout = (props) => {
           })}
         </ul>
       </div>
-      {pagination && pagination.totalPages > 1 && !searchValue && (
-        <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
-      )}
     </>
   )
 }
 
-export default BookmarksLayout
+export default SearchBookmarksLayout

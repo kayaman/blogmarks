@@ -19,10 +19,6 @@ export async function getStaticProps() {
     totalPages: Math.ceil(total / PAGE_SIZE),
   }
 
-  const searchResult = await search('vim')
-  console.log(searchResult)
-  console.log(typeof searchResult[0])
-
   return {
     props: {
       bookmarks,
