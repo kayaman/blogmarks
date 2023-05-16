@@ -9,13 +9,13 @@ export default function Home({bookmarks, title, pagination}) {
   return <BookmarksLayout bookmarks={bookmarks} title={title} pagination={pagination} />
 }
 
-export async function getStaticProps() {
-  const bookmarks = await getAllBookmarksPaginated(0, PAGE_SIZE)
+export async function getServerSideProps() {
+  const bookmarks = (await getAllBookmarksPaginated(0, PAGE_SIZE)) || []
   const total = await getAllBookmarksCount()
   const title = siteMetadata.homePageTitle
   const pagination = {
     currentPage: 1,
-    totalPages: Math.ceil(total / PAGE_SIZE),
+    totalPages: Math.floor(total / PAGE_SIZE),
   }
 
   return {
@@ -24,6 +24,5 @@ export async function getStaticProps() {
       title,
       pagination,
     },
-    revalidate: 60,
   }
 }
