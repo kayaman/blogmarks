@@ -7,13 +7,15 @@ export const getAllBookmarksCount = async (): Promise<number> => {
 }
 
 export const getAllBookmarksPaginated = async (start: number, end: number): Promise<Bookmark[]> => {
-  return await sanityClient.fetch(
+  const res = await sanityClient.fetch(
     `*[_type == 'bookmark' && private != true]
     {_id, link, title, _createdAt, _updatedAt,'tags': tags[]->{_id, name}}
     | order(_updatedAt desc)[$start...$end]
     `,
     {start: start, end: end}
   )
+  console.log(res)
+  return res
 }
 
 export const getAllBookmarksByTagName = async (tagName: string): Promise<Bookmark[]> => {
