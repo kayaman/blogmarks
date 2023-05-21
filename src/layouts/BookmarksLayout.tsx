@@ -14,7 +14,6 @@ const BookmarksLayout = (props) => {
   const {bookmarks, title, pagination} = props
   const PAGE_SIZE = siteMetadata.pageSize
   const [searchValue, setSearchValue] = useState('')
-  console.log('all bmks2: ', bookmarks)
   const filteredBookmarks = bookmarks.filter((bookmark) => {
     let searchContent = bookmark.title + bookmark.link
     searchContent += bookmark.tags && bookmark.tags.length > 0 ? bookmark.tags.join(' ') : ''
