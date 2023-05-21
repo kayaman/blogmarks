@@ -14,7 +14,6 @@ export const getAllBookmarksPaginated = async (start: number, end: number): Prom
     `,
     {start: start, end: end}
   )
-  console.log(res)
   return res
 }
 
