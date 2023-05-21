@@ -4,37 +4,36 @@ import {useState} from 'react'
 import TagLink from '@/components/TagLink'
 import siteMetadata from '@/data/siteMetadata'
 import Pagination from '@/components/Pagination'
-import Heading from '@/components/Heading'
-import {InstantSearch, SearchBox} from 'react-instantsearch-hooks-web'
 import algoliasearch from 'algoliasearch'
-
-const searchClient = algoliasearch('IUBI46TDU9', '947ade8c4264835723bd6c97b69c285d')
 
 const BookmarksLayout = (props) => {
   const {bookmarks, title, pagination} = props
   const PAGE_SIZE = siteMetadata.pageSize
   const [searchValue, setSearchValue] = useState('')
-  console.log('all bmks2: ', bookmarks)
   const filteredBookmarks = bookmarks.filter((bookmark) => {
     let searchContent = bookmark.title + bookmark.link
     searchContent += bookmark.tags && bookmark.tags.length > 0 ? bookmark.tags.join(' ') : ''
     return searchContent.toLowerCase().includes(searchValue.toLowerCase())
   })
 
+  const searchClient = algoliasearch('1829c4b97ebaa6e0c42f47ec8eda9520', 'bookmarkIndex')
+
   const displayBookmarks = bookmarks.length > 0 && !searchValue ? bookmarks : filteredBookmarks
 
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="flex-row pt-6 pb-8 space-y-2 md:space-y-5">
-          <div className="grid justify-items-stretch">
-            <div className="justify-self-start">
-              <Heading text={'My latest findings'} />
-            </div>
-            <InstantSearch searchClient={searchClient} indexName="bookmarksIndex">
-              <SearchBox />
-            </InstantSearch>
+        <div className="pt-6 pb-8 space-y-2 md:space-y-5">
+          <div className="flex flex-row justify-between space-around">
+            <h2 className="text-xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl sm:leading-10 md:text-4xl md:leading-14">
+              {title}
+            </h2>
+
+            <div className="relative max-w-2xl align-middle"></div>
           </div>
+          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
+            {siteMetadata.description}
+          </p>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!filteredBookmarks.length && 'No bookmarks found.'}

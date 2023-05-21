@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .search-panel {
+  display: flex;
+}
+
+.search-panel__filters {
+  flex: 1;
+}
+
+.search-panel__results {
+  flex: 3;
+}
+
+.ais-Highlight-highlighted {
+  color: inherit;
+  font-size: inherit;
+}
+
+#searchbox {
+  margin-bottom: 2rem;
+}
+
+#pagination {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+#ais-Hits {
+  display: block;
+} */
+
+.ais-SearchBox {
+  @apply flex justify-end;
+}
+
+.ais-SearchBox-form {
+  @apply bg-slate-600;
+}
+
+.ais-SearchBox-submit {
+  @apply bg-slate-100;
+}
+
+.ais-SearchBox-submitIcon {
+  @apply bg-slate-100;
+  @apply min-w-fit;
+  width: 20px;
+}
+
+.ais-SearchBox-input {
+  color: black;
+  @apply bg-slate-700;
+}

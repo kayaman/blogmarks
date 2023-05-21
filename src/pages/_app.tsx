@@ -1,5 +1,8 @@
 import '@/css/tailwind.css'
 import '@/css/prism.css'
+// import '@/css/algolia-reset.css'
+// import '@/css/algolia-satellite.css'
+import '@/css/algolia-custom.css'
 
 import type {AppProps} from 'next/app'
 import Head from 'next/head'
