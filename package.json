@@ -46,6 +46,8 @@
     "next-themes": "^0.2.0",
     "pliny": "0.0.10",
     "postcss": "^8.4.16",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-instantsearch-dom": "^6.40.0",
     "react-instantsearch-hooks": "^6.44.0",
     "react-instantsearch-hooks-server": "^6.44.0",
