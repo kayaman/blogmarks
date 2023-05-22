@@ -2,11 +2,12 @@
 import BookmarksLayout from '@/layouts/BookmarksLayout'
 import siteMetadata from '@/data/siteMetadata'
 import {getAllBookmarksCount, getAllBookmarksPaginated} from '@/server/persistence/sanityRepository'
+import BookmarksSearchLayout from '@/layouts/BookmarksSearchLayout'
 
 const PAGE_SIZE = siteMetadata.pageSize
 
 export default function Home({bookmarks, title, pagination}) {
-  return <BookmarksLayout bookmarks={bookmarks} title={title} pagination={pagination} />
+  return <BookmarksSearchLayout bookmarks={bookmarks} title={title} pagination={pagination} />
 }
 
 export async function getServerSideProps() {
