@@ -1,20 +1,21 @@
-import Bookmark from '@/types/Bookmark'
+'use client'
 import {BookmarkLink} from './BookmarkLink'
 import {CreatedAt} from './CreatedAt'
 import TagLink from './TagLink'
 
-interface Props
-  extends React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement> {
-  bookmark: Bookmark
-}
+// interface Props
+//   extends React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement> {
+//   bookmark: Bookmark
+// }
 
-const BookmarkCard: React.FunctionComponent<Props> = ({bookmark}) => {
-  console.log('bookmark: ', bookmark)
+function BookmarkCard({bookmark}) {
   const {_id, _createdAt, link, title, tags} = bookmark
-
+  console.log('----------------------(bookmark)--->', _createdAt)
+  console.log('------------------------->', _createdAt)
   return (
     <li key={_id} className="py-4">
-      <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
+      <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0" />
+      <article className="article">
         <CreatedAt date={_createdAt} />
         <div className="space-y-3 xl:col-span-3">
           <h3 className="text-2xl font-bold leading-8 tracking-tight">

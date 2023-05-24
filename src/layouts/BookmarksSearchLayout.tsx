@@ -1,36 +1,33 @@
-import {BookmarkLink} from '@/components/BookmarkLink'
-import {CreatedAt} from '@/components/CreatedAt'
+'use client'
 import {useState} from 'react'
-import TagLink from '@/components/TagLink'
 import siteMetadata from '@/data/siteMetadata'
 import Pagination from '@/components/Pagination'
 import Heading from '@/components/Heading'
 import {Hits, InstantSearch, SearchBox} from 'react-instantsearch-hooks-web'
 import algoliasearch from 'algoliasearch'
-// import Search from '@/components/Search'
 import BookmarkCard from '@/components/BookmarkCard'
-import CustomHits from '@/components/CustomSearchHits'
-
 const PAGE_SIZE = siteMetadata.pageSize
 const searchClient = algoliasearch('IUBI46TDU9', '947ade8c4264835723bd6c97b69c285d')
 
 function Hit({hit}) {
+  console.log('Hit: ', hit)
+  console.log('------------(hit)>: ', hit)
   return <BookmarkCard bookmark={hit} />
 }
 
-const BookmarksLayout = (props) => {
-  const {bookmarks, pagination} = props
+const BookmarksSearchLayout = (props) => {
+  const {bookmarks, _createdAt, title, pagination} = props
   const [searchValue, setSearchValue] = useState('')
 
   const searchClient = algoliasearch('IUBI46TDU9', '947ade8c4264835723bd6c97b69c285d')
 
-  const filteredBookmarks = bookmarks.filter((bookmark) => {
-    let searchContent = bookmark.title + bookmark.link
-    searchContent += bookmark.tags && bookmark.tags.length > 0 ? bookmark.tags.join(' ') : ''
-    return searchContent.toLowerCase().includes(searchValue.toLowerCase())
-  })
+  // const filteredBookmarks = bookmarks.filter((bookmark) => {
+  //   let searchContent = bookmark.title + bookmark.link
+  //   searchContent += bookmark.tags && bookmark.tags.length > 0 ? bookmark.tags.join(' ') : ''
+  //   return searchContent.toLowerCase().includes(searchValue.toLowerCase())
+  // })
 
-  const displayBookmarks = bookmarks.length > 0 && !searchValue ? bookmarks : filteredBookmarks
+  // const displayBookmarks = bookmarks.length > 0 && !searchValue ? bookmarks : searchResults
 
   return (
     <>
@@ -60,4 +57,4 @@ const BookmarksLayout = (props) => {
   )
 }
 
-export default BookmarksLayout
+export default BookmarksSearchLayout

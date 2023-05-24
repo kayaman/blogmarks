@@ -1,4 +1,4 @@
-'use client'
+'use servwr'
 import BookmarksLayout from '@/layouts/BookmarksLayout'
 import siteMetadata from '@/data/siteMetadata'
 import {getAllBookmarksCount, getAllBookmarksPaginated} from '@/server/persistence/sanityRepository'
@@ -18,7 +18,6 @@ export async function getServerSideProps() {
     currentPage: 1,
     totalPages: Math.floor(total / PAGE_SIZE),
   }
-
   return {
     props: {
       bookmarks,
