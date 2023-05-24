@@ -1,12 +1,12 @@
 'use client'
-import BookmarksLayout from '@/layouts/BookmarksLayout'
+import BookmarkSearchLayout from '@/layouts/BookmarkSearchLayout'
 import siteMetadata from '@/data/siteMetadata'
 import {getAllBookmarksCount, getAllBookmarksPaginated} from '@/server/persistence/sanityRepository'
 
 const PAGE_SIZE = siteMetadata.pageSize
 
 export default function Home({bookmarks, title, pagination}) {
-  return <BookmarksLayout bookmarks={bookmarks} title={title} pagination={pagination} />
+  return <BookmarkSearchLayout bookmarks={bookmarks} title={title} pagination={pagination} />
 }
 
 export async function getServerSideProps() {
@@ -15,7 +15,7 @@ export async function getServerSideProps() {
   const title = siteMetadata.homePageTitle
   const pagination = {
     currentPage: 1,
-    totalPages: Math.floor(total / PAGE_SIZE),
+    totalPages: Math.ceil(total / PAGE_SIZE),
   }
 
   return {

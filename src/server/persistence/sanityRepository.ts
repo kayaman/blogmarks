@@ -21,7 +21,7 @@ export const getAllBookmarksByTagName = async (tagName: string): Promise<Bookmar
   const result = await sanityClient.fetch(
     `*[_type=='tag' && name==$tagName ]
       {_id, name, 'bookmarks': 
-      *[_type=='bookmark' && references(^._id)]{_id, _createdAt, link, title, 'tags': tags[]->}
+      *[_type=='bookmark' && references(^._id)]{_id, _createdAt, link, title, 'tags': tags[]->} | order(_updatedAt desc)
     }`,
     {tagName: tagName}
   )
