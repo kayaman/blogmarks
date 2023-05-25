@@ -5,6 +5,7 @@ import TagLink from '@/components/TagLink'
 import siteMetadata from '@/data/siteMetadata'
 import Pagination from '@/components/Pagination'
 import Heading from '@/components/Heading'
+
 const PAGE_SIZE = siteMetadata.pageSize
 
 const BookmarksLayout = (props) => {
