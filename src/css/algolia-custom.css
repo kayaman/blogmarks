@@ -19,19 +19,27 @@
   @apply self-end;
   @apply items-center;
   @apply border-cyan-700;
+  @apply justify-self-end;
 }
 
 .ais-SearchBox-form:focus {
   @apply justify-self-end;
   @apply items-center;
+  @apply justify-self-end;
+  @apply items-center;
 }
 
 .ais-SearchBox-input {
+  margin-left: 15em;
+  margin-top: 18px;
   @apply bg-gray-800;
   float: right;
   color: gray;
   border-style: solid;
   @apply border-slate-900;
+  @apply justify-self-end !important;
+  @apply items-center;
+  @apply w-max;
 }
 
 .ais-SearchBox-input:focus {
@@ -40,6 +48,8 @@
   color: gray;
   border-style: solid;
   @apply border-slate-900;
+  @apply justify-self-end;
+  @apply items-center;
 }
 
 .ais-SearchBox-submit {

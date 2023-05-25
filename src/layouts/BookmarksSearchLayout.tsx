@@ -44,13 +44,15 @@ const BookmarksLayout = (props) => {
               <SearchBox className="justify-end" />
             </div>
           </div>
-          <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-            <Hits hitComponent={Hit} />
-            {/* {!filteredBookmarks.length && 'No bookmarks found.'}
+          <div className='"divide-y divide-gray-200 dark:divide-gray-700"'>
+            <ul className="divide-y divide-gray-200 dark:divide-gray-700">
+              <Hits hitComponent={Hit} />
+              {/* {!filteredBookmarks.length && 'No bookmarks found.'}
             {displayBookmarks.slice(0, PAGE_SIZE).map((bookmark) => {
               return <BookmarkCard bookmark={bookmark} />
             })} */}
-          </ul>
+            </ul>
+          </div>
         </InstantSearch>
       </div>
       {pagination && pagination.totalPages > 1 && !searchValue && (

@@ -55,9 +55,7 @@ const BookmarksLayout = (props) => {
                       <div className="flex flex-wrap">
                         {tags && tags.map((tag) => <TagLink key={tag._id} name={tag.name} />)}
                       </div>
-                      <div className="flex flex-wrap">
-                        <BookmarkLink href={link}>{title}</BookmarkLink>
-                      </div>
+                      <BookmarkLink href={link}>{title}</BookmarkLink>
                     </div>
                   </div>
                 </article>
