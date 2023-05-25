@@ -12,25 +12,16 @@ import BookmarkCard from '@/components/BookmarkCard'
 import CustomHits from '@/components/CustomSearchHits'
 
 const PAGE_SIZE = siteMetadata.pageSize
-const searchClient = algoliasearch('IUBI46TDU9', '947ade8c4264835723bd6c97b69c285d')
+const searchClient = algoliasearch('IUBI46TDU9', '0e16ff588d44cb6c0982a8db1310c525')
 
 function Hit({hit}) {
   return <BookmarkCard bookmark={hit} />
 }
 
 const BookmarksLayout = (props) => {
+  console.log('breadcrumbs...')
   const {bookmarks, pagination} = props
-  const [searchValue, setSearchValue] = useState('')
-
-  const searchClient = algoliasearch('IUBI46TDU9', '947ade8c4264835723bd6c97b69c285d')
-
-  const filteredBookmarks = bookmarks.filter((bookmark) => {
-    let searchContent = bookmark.title + bookmark.link
-    searchContent += bookmark.tags && bookmark.tags.length > 0 ? bookmark.tags.join(' ') : ''
-    return searchContent.toLowerCase().includes(searchValue.toLowerCase())
-  })
-
-  const displayBookmarks = bookmarks.length > 0 && !searchValue ? bookmarks : filteredBookmarks
+  // const [searchValue, setSearchValue] = useState('')
 
   return (
     <>
@@ -46,16 +37,9 @@ const BookmarksLayout = (props) => {
           </div>
           <ul className="divide-y divide-gray-200 dark:divide-gray-700">
             <Hits hitComponent={Hit} />
-            {/* {!filteredBookmarks.length && 'No bookmarks found.'}
-            {displayBookmarks.slice(0, PAGE_SIZE).map((bookmark) => {
-              return <BookmarkCard bookmark={bookmark} />
-            })} */}
           </ul>
         </InstantSearch>
       </div>
-      {pagination && pagination.totalPages > 1 && !searchValue && (
-        <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
-      )}
     </>
   )
 }

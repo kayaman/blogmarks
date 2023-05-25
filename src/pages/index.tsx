@@ -7,6 +7,7 @@ import BookmarksSearchLayout from '@/layouts/BookmarksSearchLayout'
 const PAGE_SIZE = siteMetadata.pageSize
 
 export default function Home({bookmarks, title, pagination}) {
+  console.log('breadcrumbs..')
   return <BookmarksSearchLayout bookmarks={bookmarks} title={title} pagination={pagination} />
 }
 

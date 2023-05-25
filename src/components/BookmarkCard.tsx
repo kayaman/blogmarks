@@ -11,7 +11,7 @@ interface Props
 const BookmarkCard: React.FunctionComponent<Props> = ({bookmark}) => {
   console.log('bookmark: ', bookmark)
   const {_id, _createdAt, link, title, tags} = bookmark
-
+  console.log('breadcrumbs....')
   return (
     <li key={_id} className="py-4">
       <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
