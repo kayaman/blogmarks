@@ -12,7 +12,7 @@ import BookmarkCard from '@/components/BookmarkCard'
 import CustomHits from '@/components/CustomSearchHits'
 
 const PAGE_SIZE = siteMetadata.pageSize
-const searchClient = algoliasearch('IUBI46TDU9', '947ade8c4264835723bd6c97b69c285d')
+const searchClient = algoliasearch('IUBI46TDU9', '0e16ff588d44cb6c0982a8db1310c525')
 
 function Hit({hit}) {
   return <BookmarkCard bookmark={hit} />
@@ -21,8 +21,6 @@ function Hit({hit}) {
 const BookmarksLayout = (props) => {
   const {bookmarks, pagination} = props
   const [searchValue, setSearchValue] = useState('')
-
-  const searchClient = algoliasearch('IUBI46TDU9', '947ade8c4264835723bd6c97b69c285d')
 
   const filteredBookmarks = bookmarks.filter((bookmark) => {
     let searchContent = bookmark.title + bookmark.link
