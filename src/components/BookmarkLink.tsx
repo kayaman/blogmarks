@@ -19,8 +19,6 @@ export const BookmarkLink: React.FunctionComponent<IBookmarkLinkProps> = (props)
   let _target = '_blank'
   let _rel = 'noopener noreferrer'
   let _ariaLabel = 'Follow this bookmark'
-
-  if (title && title.length > 0) _title = title
   if (className) _style = className
   if (target) _target = target
   if (rel) _rel = rel

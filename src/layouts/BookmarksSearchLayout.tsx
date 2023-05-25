@@ -14,14 +14,6 @@ const BookmarksLayout = (props) => {
   const {bookmarks, pagination} = props
   const [searchValue, setSearchValue] = useState('')
 
-  const filteredBookmarks = bookmarks.filter((bookmark) => {
-    let searchContent = bookmark.title + bookmark.link
-    searchContent += bookmark.tags && bookmark.tags.length > 0 ? bookmark.tags.join(' ') : ''
-    return searchContent.toLowerCase().includes(searchValue.toLowerCase())
-  })
-
-  const displayBookmarks = bookmarks.length > 0 && !searchValue ? bookmarks : filteredBookmarks
-
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -33,10 +25,10 @@ const BookmarksLayout = (props) => {
           </div>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-          {/* {!filteredBookmarks.length && 'No bookmarks found.'}
-            {displayBookmarks.slice(0, PAGE_SIZE).map((bookmark) => {
+          {bookmarks &&
+            bookmarks.map((bookmark) => {
               return <BookmarkCard bookmark={bookmark} />
-            })} */}
+            })}
         </ul>
       </div>
       {pagination && pagination.totalPages > 1 && !searchValue && (

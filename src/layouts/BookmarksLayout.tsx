@@ -5,20 +5,13 @@ import TagLink from '@/components/TagLink'
 import siteMetadata from '@/data/siteMetadata'
 import Pagination from '@/components/Pagination'
 import Heading from '@/components/Heading'
-
 const PAGE_SIZE = siteMetadata.pageSize
 
 const BookmarksLayout = (props) => {
   const {bookmarks, pagination} = props
   const [searchValue, setSearchValue] = useState('')
 
-  const filteredBookmarks = bookmarks.filter((bookmark) => {
-    let searchContent = bookmark.title + bookmark.link
-    searchContent += bookmark.tags && bookmark.tags.length > 0 ? bookmark.tags.join(' ') : ''
-    return searchContent.toLowerCase().includes(searchValue.toLowerCase())
-  })
-
-  const displayBookmarks = bookmarks.length > 0 && !searchValue ? bookmarks : filteredBookmarks
+  const displayBookmarks = bookmarks || []
 
   return (
     <>
@@ -31,7 +24,6 @@ const BookmarksLayout = (props) => {
           </div>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-          {!filteredBookmarks.length && 'No bookmarks found.'}
           {displayBookmarks.slice(0, PAGE_SIZE).map((bookmark) => {
             const {_id, _createdAt, link, title, tags} = bookmark // tag wiped out, legacy blog code
             return (
