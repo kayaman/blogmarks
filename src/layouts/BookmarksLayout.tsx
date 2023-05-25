@@ -5,8 +5,6 @@ import TagLink from '@/components/TagLink'
 import siteMetadata from '@/data/siteMetadata'
 import Pagination from '@/components/Pagination'
 import Heading from '@/components/Heading'
-import {InstantSearch, SearchBox} from 'react-instantsearch-hooks-web'
-
 const PAGE_SIZE = siteMetadata.pageSize
 
 const BookmarksLayout = (props) => {

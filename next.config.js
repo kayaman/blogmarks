@@ -1,4 +1,4 @@
-const { withContentlayer } = require('next-contentlayer')
+const {withContentlayer} = require('next-contentlayer')
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -63,7 +63,7 @@ module.exports = () => {
     reactStrictMode: true,
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
     eslint: {
-      dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
+      dirs: ['pages', 'components', 'lib', 'layouts'],
     },
     async headers() {
       return [

@@ -1,11 +1,7 @@
-import {BookmarkLink} from '@/components/BookmarkLink'
-import {CreatedAt} from '@/components/CreatedAt'
 import {useState} from 'react'
-import TagLink from '@/components/TagLink'
 import siteMetadata from '@/data/siteMetadata'
 import Pagination from '@/components/Pagination'
 import Heading from '@/components/Heading'
-import {Hits, InstantSearch, SearchBox} from 'react-instantsearch-hooks-web'
 import BookmarkCard from '@/components/BookmarkCard'
 
 const PAGE_SIZE = siteMetadata.pageSize
