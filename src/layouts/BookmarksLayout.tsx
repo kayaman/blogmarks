@@ -17,8 +17,8 @@ const BookmarksLayout = (props) => {
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="flex-row pt-6 pb-8 space-y-2 md:space-y-5">
-          <div className="inline-flex items-baseline">
+        <div className="flex-row space-y-2 pb-3 pt-2 md:space-y-5">
+          <div className="mx-max inline-flex">
             <div className="self-start justify-self-start">
               <Heading text={'My latest findings'} />
             </div>
