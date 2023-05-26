@@ -17,6 +17,12 @@ const Header = () => {
               <div className="hidden h-6 text-2xl font-semibold sm:block">
                 {siteMetadata.headerTitle}
               </div>
+             <div className="hidden h-6 text-2xl font-semibold sm:block">
+              {siteMetadata.pageTitle}
+            </div>
+            <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
+              {siteMetadata.description}
+            </p>
           </div>
         </Link>
         <p className="text-base text-gray-300 leading-2 dark:text-gray-400">{siteMetadata.description}
