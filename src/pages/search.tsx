@@ -1,4 +1,3 @@
-// 'use client'
 import React from 'react'
 import algoliasearch from 'algoliasearch/lite'
 import {InstantSearch, SearchBox, Hits} from 'react-instantsearch-hooks-web'
