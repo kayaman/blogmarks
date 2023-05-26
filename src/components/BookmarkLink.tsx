@@ -21,6 +21,7 @@ export const BookmarkLink: React.FunctionComponent<IBookmarkLinkProps> = (props)
   let _ariaLabel = 'Follow this bookmark'
   if (className) _style = className
   if (target) _target = target
+  if (title) _title = title
   if (rel) _rel = rel
   if (ariaLabel) _ariaLabel = ariaLabel
 
