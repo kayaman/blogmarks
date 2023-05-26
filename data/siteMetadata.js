@@ -6,7 +6,8 @@ const siteMetadata = {
   owner: 'Marco Antonio Gonzalez Junior',
   author: 'Tails Azimuth',
   headerTitle: 'my Bookmarks',
-  description: "I don't know. But I know where to known.",
+  headerText: 'My latest findings',
+  description: "I don't know. But I know where to find it.",
   language: 'en-us',
   theme: 'dark', // system, dark or light
   siteUrl: 'https://bookma.rco.sh',
