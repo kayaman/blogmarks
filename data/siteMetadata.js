@@ -6,6 +6,7 @@ const siteMetadata = {
   owner: 'Marco Antonio Gonzalez Junior',
   author: 'Tails Azimuth',
   headerTitle: 'my Bookmarks',
+  headerText: 'My latest findings',
   description: "I don't know. But I know where to find it.",
   language: 'en-us',
   theme: 'dark', // system, dark or light

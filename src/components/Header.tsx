@@ -7,14 +7,17 @@ import Logo from './Logo'
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-between py-10">
+    <header className="flex items-center py-5 justify-left">
       <div>
         <Link href="/" aria-label={siteMetadata.headerTitle}>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-left">
             <div className="mr-3">
               <Logo />
             </div>
-            <div className="hidden h-6 text-2xl font-semibold sm:block">
+              <div className="hidden h-6 text-2xl font-semibold sm:block">
+                {siteMetadata.headerTitle}
+              </div>
+             <div className="hidden h-6 text-2xl font-semibold sm:block">
               {siteMetadata.pageTitle}
             </div>
             <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
@@ -22,6 +25,8 @@ const Header = () => {
             </p>
           </div>
         </Link>
+        <p className="text-base text-gray-300 leading-2 dark:text-gray-400">{siteMetadata.description}
+        </p>
       </div>
       <div className="flex items-center text-base leading-5">
         <div className="hidden sm:block">
