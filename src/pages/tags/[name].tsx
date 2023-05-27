@@ -1,3 +1,4 @@
+'use client'
 import {InferGetStaticPropsType} from 'next'
 import {createClient} from 'next-sanity'
 import clientConfig from '@/sanity/clientConfig'

@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import TagLink from 'src/components/TagLink'
 import {getAllTags} from '@/server/persistence/sanityRepository'

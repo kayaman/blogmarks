@@ -1,3 +1,4 @@
+"use client"
 import siteMetadata from '@/data/siteMetadata'
 import BookmarksLayout from '@/layouts/BookmarksLayout'
 import {getAllBookmarksCount, getAllBookmarksPaginated} from '@/server/persistence/sanityRepository'

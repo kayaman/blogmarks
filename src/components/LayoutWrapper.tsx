@@ -1,3 +1,4 @@
+"use client"
 import SectionContainer from './SectionContainer'
 import Footer from './Footer'
 import {ReactNode} from 'react'

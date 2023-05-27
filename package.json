@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "next dev",
+    "dev_": "cross-env INIT_CWD=$PWD next dev",
     "dev": "cross-env INIT_CWD=$PWD next dev",
     "build": "cross-env INIT_CWD=$PWD next build && cross-env NODE_OPTIONS='--experimental-json-modules' node -r esbuild-register",
     "serve": "next start",
@@ -32,6 +33,7 @@
     "date-fns": "^2.30.0",
     "dateformat": "^5.0.3",
     "dayjs": "^1.11.7",
+    "dev": "contentlayer dev & next & next dev",
     "esbuild": "0.17.5",
     "github-slugger": "^1.4.0",
     "gray-matter": "^4.0.2",
