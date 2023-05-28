@@ -1,7 +1,7 @@
 import {InferGetStaticPropsType} from 'next'
 import {createClient} from 'next-sanity'
 import clientConfig from '@/sanity/clientConfig'
-import BookmarksLayout from '@/layouts/BookmarksLayout'
+import BookmarksSearchLayout from '@/layouts/BookmarksSearchLayout'
 
 export default function TagPage({
   tagName,
@@ -9,7 +9,7 @@ export default function TagPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <BookmarksLayout bookmarks={bookmarks} title={tagName} />
+      <BookmarksSearchLayout bookmarks={bookmarks} title={tagName} />
     </>
   )
 }

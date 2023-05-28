@@ -1,6 +1,5 @@
 import siteMetadata from '@/data/siteMetadata'
 import {getAllBookmarksCount, getAllBookmarksPaginated} from '@/server/persistence/sanityRepository'
-import BookmarksSearchLayout from '@/layouts/BookmarksSearchLayout'
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, SearchBox, RefinementList, Hits } from 'react-instantsearch-hooks-web';
 import BookmarkCard from '@/components/BookmarkCard';

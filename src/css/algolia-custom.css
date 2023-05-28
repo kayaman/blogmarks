@@ -11,31 +11,31 @@
 
 .ais-SearchBox {
   @apply self-end;
-  @apply justify-self-end;
 }
 
 .ais-SearchBox-form {
   @apply bg-gray-900;
   @apply self-end;
-  @apply items-center;
+  @apply justify-self-end
   @apply border-cyan-700;
+  @apply mx-96;
 }
 
 .ais-SearchBox-form:focus {
   @apply justify-self-end;
   @apply items-center;
+  @apply mx-96;
 }
 
 .ais-SearchBox-input {
   @apply bg-blue-800;
   float: right;
-  color: rgb(177, 116, 116);
+  color: slateblue;                                     
   border-style: solid;
   @apply border-slate-900;
   padding-top: 0em;
   block-size: 1.5em;
-  border-radius: 30px;
-
+  border-radius: 10px;
 }
 
 .ais-SearchBox-input:focus {
@@ -46,7 +46,7 @@
   @apply border-slate-900;
   padding-top: 0em;
   block-size: 1.5em;
-  border-radius: 30px;
+  border-radius: 10px;
 }
 
 .ais-SearchBox-submit {

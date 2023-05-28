@@ -1,9 +1,10 @@
-import BookmarksLayout from '@/layouts/BookmarksLayout'
+
 import siteMetadata from '@/data/siteMetadata'
+import BookmarksSearchLayout from '@/layouts/BookmarksSearchLayout'
 import {getAllBookmarksByTagName} from '@/server/persistence/sanityRepository'
 
 const References = ({bookmarks, title}) => {
-  return <BookmarksLayout bookmarks={bookmarks} title={title} />
+  return <BookmarksSearchLayout bookmarks={bookmarks} title={title} />
 }
 
 export async function getStaticProps() {

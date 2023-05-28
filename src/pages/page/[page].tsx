@@ -1,9 +1,9 @@
 import siteMetadata from '@/data/siteMetadata'
-import BookmarksLayout from '@/layouts/BookmarksLayout'
+import BookmarksSearchLayout from '@/layouts/BookmarksSearchLayout'
 import {getAllBookmarksCount, getAllBookmarksPaginated} from '@/server/persistence/sanityRepository'
 
 const PaginatedBookmarksList = ({bookmarks, title, pagination}) => {
-  return <BookmarksLayout bookmarks={bookmarks} title={title} pagination={pagination} />
+  return <BookmarksSearchLayout bookmarks={bookmarks} title={title} pagination={pagination} />
 }
 
 const PAGE_SIZE = siteMetadata.pageSize
@@ -30,7 +30,6 @@ export const getStaticProps = async (context) => {
 
   return {
     props: {
-      bookmarks,
       title,
       pagination,
     },
