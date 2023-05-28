@@ -14,7 +14,7 @@ const BookmarksLayout = (props) => {
   const {bookmarks, pagination} = props
   const [searchValue, setSearchValue] = useState('')
 
-  console.log('bookmarks:', bookmarks)
+  console.log('bookmarks from BookmarksLayout :', bookmarks)
 
   return (
     <>
@@ -27,6 +27,7 @@ const BookmarksLayout = (props) => {
           </div>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
+          {console.log("bookmarks from: ", )}
           {bookmarks &&
             bookmarks.map((bookmark) => {
               return <BookmarkCard bookmark={bookmark} />

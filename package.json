@@ -113,5 +113,10 @@
     "printWidth": 100,
     "bracketSpacing": false,
     "singleQuote": true
-  }
+  },
+  "description": "![tailwind-nextjs-banner](/public/static/images/twitter-card.png)",
+  "main": ".eslintrc.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
