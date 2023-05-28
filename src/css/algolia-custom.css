@@ -27,19 +27,26 @@
 }
 
 .ais-SearchBox-input {
-  @apply bg-gray-800;
+  @apply bg-blue-800;
   float: right;
-  color: gray;
+  color: rgb(177, 116, 116);
   border-style: solid;
   @apply border-slate-900;
+  padding-top: 0em;
+  block-size: 1.5em;
+  border-radius: 30px;
+
 }
 
 .ais-SearchBox-input:focus {
-  @apply bg-gray-800;
+   @apply bg-gray-200;
   float: right;
   color: gray;
   border-style: solid;
   @apply border-slate-900;
+  padding-top: 0em;
+  block-size: 1.5em;
+  border-radius: 30px;
 }
 
 .ais-SearchBox-submit {
