@@ -9,7 +9,7 @@ import Heading from '@/components/Heading'
 const PAGE_SIZE = siteMetadata.pageSize
 
 const BookmarksLayout = (props) => {
-  const {bookmarks, pagination} = props
+  const {bookmarks, title, pagination} = props
   const [searchValue, setSearchValue] = useState('')
 
   const displayBookmarks = bookmarks || []
@@ -20,7 +20,7 @@ const BookmarksLayout = (props) => {
         <div className="flex-row pt-6 pb-8 space-y-2 md:space-y-5">
           <div className="inline-flex items-baseline">
             <div className="self-start justify-self-start">
-              <Heading text={'My latest findings'} />
+              <Heading text={title || 'References'} />
             </div>
           </div>
         </div>
