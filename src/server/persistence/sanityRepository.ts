@@ -10,7 +10,7 @@ export const getAllBookmarksPaginated = async (start: number, end: number): Prom
   const res = await sanityClient.fetch(
     `*[_type == 'bookmark' && private != true]
     {_id, link, title, _createdAt, _updatedAt,'tags': tags[]->{_id, name}}
-    | order(_updatedAt desc)[$start...$end]
+    | order(_createdAt desc)[$start...$end]
     `,
     {start: start, end: end}
   )
@@ -19,10 +19,13 @@ export const getAllBookmarksPaginated = async (start: number, end: number): Prom
 
 export const getAllBookmarksByTagName = async (tagName: string): Promise<Bookmark[]> => {
   const result = await sanityClient.fetch(
-    `*[_type=='tag' && name==$tagName ]
+    `
+    *[_type=='tag' && name==$tagName ]
       {_id, name, 'bookmarks': 
-      *[_type=='bookmark' && references(^._id)]{_id, _createdAt, link, title, 'tags': tags[]->}
-    }`,
+      *[_type=='bookmark' && references(^._id)]
+      {_id, _createdAt, link, title, 'tags': tags[]->} }
+      | order(_createdAt desc)
+    `,
     {tagName: tagName}
   )
   const {bookmarks} = result[0]
