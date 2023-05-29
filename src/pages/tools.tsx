@@ -17,7 +17,6 @@ export async function getStaticProps() {
       tagName,
       title,
     },
-    revalidate: 60,
   }
 }
 
