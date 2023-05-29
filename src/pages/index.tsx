@@ -10,7 +10,7 @@ const PAGE_SIZE = siteMetadata.pageSize
 
 const searchClient = algoliasearch('IUBI46TDU9', '934609271f37b4520c961634b5f9b592')
 
-const hitHandler = (hit): BookmarkCard => {
+const hitHandler = (hit) => {
   return <BookmarkCard bookmark={hit} />
 }
 
