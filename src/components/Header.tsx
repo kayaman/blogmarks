@@ -7,7 +7,7 @@ import Logo from './Logo'
 
 const Header = () => {
   return (
-    <header className="justify-left flex items-center pt-0 pb-0 pl-5 pr-5">
+    <header className="justify-left flex items-center pb-5 pl-5 pr-5 pt-6">
       <div>
         <Link href="/" aria-label={siteMetadata.headerTitle}>
           <div className="justify-left flex items-center">
@@ -17,16 +17,14 @@ const Header = () => {
             <div className="hidden h-5 text-2xl font-semibold sm:block">
               {siteMetadata.headerTitle}
             </div>
-            <div className="h-5 text-xl font-semibold sm:block">
-              {siteMetadata.pageTitle}
-            </div>
+            <div className="h-5 text-xl font-semibold sm:block">{siteMetadata.pageTitle}</div>
           </div>
         </Link>
         <p className="leading-2 text-base text-gray-300 dark:text-gray-400">
           {siteMetadata.description}
         </p>
       </div>
-      <div className="flex items-end align-top text-base leading-2 text-right">
+      <div className="leading-2 flex items-end text-right align-top text-base">
         <div className="text-lg">
           {headerNavLinks.map((link) => (
             <Link
