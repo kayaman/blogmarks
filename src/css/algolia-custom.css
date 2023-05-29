@@ -2,109 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .ais-InstantSearch {
-  max-width: 45%;
-  overflow: hidden;
-  background-color: violet;
-  margin: 0 auto;
-} */
-
 .ais-SearchBox {
-  @apply self-end;
-  @apply justify-self-end;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  float: right;
+  max-height: 2em;
+  max-width: 200px;
 }
 
 .ais-SearchBox-form {
-  @apply bg-gray-900;
-  @apply self-end;
-  @apply items-center;
-  @apply border-cyan-700;
-}
-
-.ais-SearchBox-form:focus {
-  @apply justify-self-end;
-  @apply items-center;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  float: right;
+  max-height: 2em;
+  max-width: 200px;
 }
 
 .ais-SearchBox-input {
-  @apply bg-gray-800;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  max-height: 2em;
+  min-width: 200px;
+  max-width: 200px;
+  color: antiquewhite;
+  background-color: #262626;
   float: right;
-  color: gray;
-  border-style: solid;
-  @apply border-slate-900;
+  border: 2px solid ;
+  border-radius: 12em;
+  border-color: #71717A;
+  position: relative;
+  padding-right: 100px;
+  padding-top: -29px;
+
 }
 
 .ais-SearchBox-input:focus {
-  @apply bg-gray-800;
-  float: right;
-  color: gray;
-  border-style: solid;
-  @apply border-slate-900;
-}
-
-.ais-SearchBox-submit {
-  visibility: visible;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  max-height: 2em;
+  max-width: 200px;
+  background-color: #9CA3AF;
   color: antiquewhite;
-  width: 40px;
-  height: 40px;
-}
-
-.ais-SearchBox-submitIcon {
-  color: aliceblue;
-  width: 20px;
-  min-height: 20px;
-  display: block;
-  @apply justify-self-end;
-  position: relative;
-  right: -14em;
-  margin-left: 50px;
-}
-
-.ais-Hits {
-  position: relative;
-  clear: both;
-}
-
-.ais-Hits-item {
-  width: 100% !important;
-  margin: 2em;
-}
-
-/* .ais-SearchBox-submitIcon:focus {
-  color: aliceblue;
-} */
-.ais-SearchBox-reset {
-  color: rgb(238, 233, 226);
-}
-
-.ais-Hits-item {
-  margin-bottom: 1em;
-  width: calc(50% - 1rem);
-}
-
-.ais-Hits-item img {
-  margin-right: 1em;
-}
-
-.hit-name {
-  margin-bottom: 0.5em;
-}
-
-.hit-description {
-  color: #888;
-  font-size: 14px;
-  margin-bottom: 0.5em;
-}
-
-.ais-Pagination {
-  margin-top: 1em;
-}
-
-.left-panel {
-  float: left;
-  width: 250px;
-}
-
-.right-panel {
-  margin-left: 260px;
+  float: right;
+  border-radius: 10px;
+  border-color: 1px dotted green;
 }
