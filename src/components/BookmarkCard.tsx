@@ -10,9 +10,10 @@ interface Props
 
 const BookmarkCard: React.FunctionComponent<Props> = ({bookmark}) => {
   const {_id, _createdAt, link, title, tags} = bookmark
+  console.log('bookmark _id: ', _id)
 
   return (
-    <li key={_id} className="py-4">
+    <div key={_id} className="py-4">
       <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
         <CreatedAt date={_createdAt} />
         <div className="space-y-3 xl:col-span-3">
@@ -27,7 +28,7 @@ const BookmarkCard: React.FunctionComponent<Props> = ({bookmark}) => {
           </div>
         </div>
       </article>
-    </li>
+    </div>
   )
 }
 
