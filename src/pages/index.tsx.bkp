@@ -7,13 +7,13 @@ import BookmarkCard from '@/components/BookmarkCard'
 
 const PAGE_SIZE = siteMetadata.pageSize
 
+const searchClient = algoliasearch('IUBI46TDU9', '934609271f37b4520c961634b5f9b592')
+
 const hitHandler = (hit) => {
   return <BookmarkCard bookmark={hit} />
 }
 
 export default function Home({bookmarks, title, pagination}) {
-  console.log('---------------------------(bookmarks0')
-
   return <BookmarksLayout bookmarks={bookmarks} title={title} pagination={pagination} />
 }
 
