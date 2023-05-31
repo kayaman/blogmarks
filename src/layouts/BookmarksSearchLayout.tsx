@@ -9,6 +9,7 @@ const PAGE_SIZE = siteMetadata.pageSize
 function Hit({hit}) {
   return <BookmarkCard bookmark={hit} />
 }
+const searchClient = algoliasearch('IUBI46TDU9', '934609271f37b4520c961634b5f9b592')
 
 const BookmarksLayout = (props) => {
   const {bookmarks, pagination} = props
@@ -26,8 +27,15 @@ const BookmarksLayout = (props) => {
             </div>
           </div>
         </div>
+
+        {/* <InstantSearch searchClient={searchClient} indexName="bookmarksIndexProd">
+          <SearchBox />
+          <Hits hitComponent={hitHandler} />
+        </InstantSearch> */}
+        {/* <BookmarksSearchLayout bookmarks={bookmarks} title={title} pagination={pagination} /> */}
+
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-          {bookmarks &&
+          {display &&
             bookmarks.map((bookmark) => {
               return <BookmarkCard bookmark={bookmark} />
             })}
@@ -40,4 +48,4 @@ const BookmarksLayout = (props) => {
   )
 }
 
-export default BookmarksLayout
+export default ListLayout
