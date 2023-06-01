@@ -64,7 +64,6 @@
   border-color: 1px dotted green;
 }
 
-.ais-Hits {
-  color: azure;
-  border: 2px solid red;
-}
+/* .ais-Hits {
+  background-color: inherit;
+} */
