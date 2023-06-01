@@ -1,17 +1,15 @@
-import algoliasearch from 'algoliasearch/lite'
-import {Hits, InstantSearch, SearchBox} from 'react-instantsearch-hooks-web'
 import siteMetadata from '@/data/siteMetadata'
 import {getAllBookmarksCount, getAllBookmarksPaginated} from '@/server/persistence/sanityRepository'
 import BookmarksLayout from '@/layouts/BookmarksSearchLayout'
 import BookmarkCard from '@/components/BookmarkCard'
 
-const PAGE_SIZE = siteMetadata.pageSize
+const PAGE_SIZE: number = siteMetadata.pageSize
 
 const hitHandler = (hit) => {
   return <BookmarkCard bookmark={hit} />
 }
 
-export default function Home({bookmarks, title, pagination}) {
+const Home = ({bookmarks, title, pagination}) => {
   console.log('---------------------------(bookmarks0')
 
   return <BookmarksLayout bookmarks={bookmarks} title={title} pagination={pagination} />
@@ -34,3 +32,5 @@ export async function getServerSideProps() {
     },
   }
 }
+
+export default Home

@@ -63,5 +63,6 @@
 }
 
 .ais-Hits {
-  color: azure;
+  display: none;
+  visibility: hidden;
 }

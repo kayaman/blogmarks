@@ -35,8 +35,6 @@ const ThemeSwitch = () => {
           )}
         </svg>
       </button>
-
-      <input type="text" width="200px" />
     </>
   )
 }

@@ -24,11 +24,11 @@ const BookmarksLayout = (props) => {
             </div>
           </div>
         </div>
-        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
+        <ul key="searcLayout" className="list-none divide-y divide-gray-200 dark:divide-gray-700">
           {displayBookmarks.slice(0, PAGE_SIZE).map((bookmark) => {
             const {_id, _createdAt, link, title, tags} = bookmark // tag wiped out, legacy blog code
             return (
-              <li key={_id} className="py-4">
+              <div key={_id} className="py-4 list-none">
                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                   <CreatedAt date={_createdAt} />
                   <div className="space-y-3 xl:col-span-3">
@@ -49,7 +49,7 @@ const BookmarksLayout = (props) => {
                     </div>
                   </div>
                 </article>
-              </li>
+              </div>
             )
           })}
         </ul>

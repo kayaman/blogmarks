@@ -34,12 +34,12 @@ const BookmarksLayout = (props) => {
             <Hits hitComponent={hitHandler} />
           </InstantSearch>
         </div>
-        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
+        <div className="divide-y divide-gray-200 dark:divide-gray-700">
           {bookmarks &&
             bookmarks.map((bookmark) => {
               return <BookmarkCard bookmark={bookmark} />
             })}
-        </ul>
+        </div>
       </div>
       {pagination && pagination.totalPages > 1 && !searchValue && (
         <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />

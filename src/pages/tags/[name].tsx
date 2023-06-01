@@ -1,17 +1,9 @@
-import {InferGetStaticPropsType} from 'next'
 import {createClient} from 'next-sanity'
 import clientConfig from '@/sanity/clientConfig'
 import BookmarksLayout from '@/layouts/BookmarksLayout'
 
-export default function TagPage({
-  tagName,
-  bookmarks,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
-  return (
-    <>
-      <BookmarksLayout bookmarks={bookmarks} title={tagName} />
-    </>
-  )
+export default function TagPage({bookmarks, tagName}) {
+  return <BookmarksLayout bookmarks={bookmarks} title={tagName} />
 }
 
 const client = createClient(clientConfig)

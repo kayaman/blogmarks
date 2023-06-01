@@ -13,7 +13,7 @@ const BookmarkCard: React.FunctionComponent<Props> = ({bookmark}) => {
   const {_id, _createdAt, link, title, tags} = bookmark
 
   return (
-    <li key={_id} className="py-4">
+    <li key={_id} className="py-4 list-none">
       <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
         <CreatedAt date={_createdAt} />
         <div className="space-y-3 xl:col-span-3">
