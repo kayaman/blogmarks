@@ -1,11 +1,5 @@
 {
-  "github": {
-    "silent": true
-  },
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/node-bridge"
-    }
-  ]
+  "buildCommand": "next build",
+  "devCommand": "next dev",
+  "framework": "nextjs"
 }
