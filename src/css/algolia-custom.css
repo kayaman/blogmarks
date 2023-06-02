@@ -2,24 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.ais-SearchBox {
-  padding: 0;
-  border: 0;
-  margin: 0;
-  float: right;
-  max-height: 2em;
-  max-width: 200px;
-}
-
-.ais-SearchBox-form {
-  padding: 0;
-  border: 0;
-  margin: 0;
-  float: right;
-  max-height: 2em;
-  max-width: 200px;
-}
-
 .ais-SearchBox-input {
   padding: 0;
   border: 0;
@@ -63,8 +45,21 @@
   border-radius: 10px;
   border-color: 1px dotted green;
 }
+.ais-SearchBox {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  float: right;
+  max-height: 2em;
+  max-width: 200px;
+}
+
+.ais-SearchBox-form {
+  visibility: hidden;
+  display: none;
+}
 
 .ais-Hits {
-  color: azure;
-  border: 2px solid red;
+  visibility: hidden;
+  display: none;
 }
