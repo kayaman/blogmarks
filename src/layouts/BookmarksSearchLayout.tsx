@@ -3,6 +3,8 @@ import siteMetadata from '@/data/siteMetadata'
 import Pagination from '@/components/Pagination'
 import Heading from '@/components/Heading'
 import BookmarkCard from '@/components/BookmarkCard'
+import {InstantSearch} from 'react-instantsearch-hooks'
+import {Hits} from 'react-instantsearch-hooks-web'
 
 function Hit({hit}) {
   return <BookmarkCard bookmark={hit} />
@@ -12,10 +14,14 @@ const BookmarksLayout = (props) => {
   const {bookmarks, pagination} = props
   const [searchValue, setSearchValue] = useState('')
 
-  console.log('bookmarks:', bookmarks)
+  const hitHandler = (hit) => {
+    console.log('bookmark HIT: ', bookmarks)
+    return <BookmarkCard bookmark={hit} />
+  }
 
   return (
     <>
+      <Hits hitComponent={hitHandler} />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="flex-row pt-1 pb-8 space-y-2 md:space-y-5">
           <div className="inline-flex items-baseline">
@@ -24,12 +30,6 @@ const BookmarksLayout = (props) => {
             </div>
           </div>
         </div>
-
-        {/* <InstantSearch searchClient={searchClient} indexName="bookmarksIndexProd">
-          <SearchBox />
-          <Hits hitComponent={hitHandler} />
-        </InstantSearch> */}
-        {/* <BookmarksSearchLayout bookmarks={bookmarks} title={title} pagination={pagination} /> */}
 
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           // TODO: fix the code below, create a global var to get records from other sources ex.

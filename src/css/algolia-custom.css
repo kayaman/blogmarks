@@ -31,10 +31,11 @@
   background-color: #262626;
   float: right;
   border: 2px solid;
-  border-radius: 12em;
+  border-radius: 2em;
   border-color: #71717a;
-  position: relative;
-  padding-right: 100px;
+  position: absolute;
+  padding-right: 0;
+  padding-right: 0px;
   padding-top: -29px;
 }
 
@@ -44,10 +45,10 @@
   margin: 0;
   max-height: 2em;
   max-width: 200px;
-  background-color: #9ca3af;
+  background-color: #262626;
   color: antiquewhite;
   float: right;
-  border-radius: 10px;
+  border-radius: 5px;
   border-color: 1px dotted green;
 }
 
@@ -64,7 +65,14 @@
   border-color: 1px dotted green;
 }
 
+.ais-Hits-list,
+.ais-Hits-item,
 .ais-Hits {
-  color: azure;
-  border: 2px solid red;
+  display: none;
+  visibility: hidden;
+}
+
+.ais-SearchBox-submitIcon path,
+.ais-SearchBox-resetIcon path {
+  fill: red;
 }
