@@ -22,11 +22,18 @@ export default function Home({bookmarks, title, pagination}) {
 
   return (
     <>
-      {!isLoading && bookmarks && (
+      {!query && bookmarks && (
         <BookmarksSearchLayout bookmarks={bookmarks} title={title} pagination={pagination} />
       )}
       <InstantSearch searchClient={searchClient} indexName="bookmarksIndexProd">
-        <SearchBox />
+        <SearchBox
+          placeholder="Search..."
+          onChangeCapture={(event) => {
+            console.log(event.target.value)
+            setQuery(event.target.value)
+          }}
+          on
+        />
         <Hits hitComponent={hitHandler} />
       </InstantSearch>
     </>

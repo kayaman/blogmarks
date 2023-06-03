@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 .ais-SearchBox-input {
+  display: block;
+  visibility: visible;
   padding: 0;
   border: 0;
   margin: 0;
@@ -46,6 +48,8 @@
   border-color: 1px dotted green;
 }
 .ais-SearchBox {
+  @apply w-full;
+  @apply max-w-lg;
   padding: 0;
   border: 0;
   margin: 0;
@@ -55,11 +59,12 @@
 }
 
 .ais-SearchBox-form {
-  visibility: hidden;
-  display: none;
+  visibility: visible;
+  display: inline;
 }
 
 .ais-Hits {
-  visibility: hidden;
-  display: none;
+  /* visibility: hidden;
+  display: none; */
+  padding: 0;
 }

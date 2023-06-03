@@ -12,14 +12,17 @@ const BookmarksLayout = (props) => {
   const {bookmarks, pagination} = props
   const [searchValue, setSearchValue] = useState('')
 
+  // flex-row space-y-2 pb-8 pt-1 md:space-y-5
+
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="flex-row pt-1 pb-8 space-y-2 md:space-y-5">
-          <div className="inline-flex items-baseline">
-            <div className="self-start justify-self-start">
-              <Heading text={siteMetadata.headerText} />
-            </div>
+        <div className="flex flex-row justify-between pl-3">
+          <div className="self-start justify-self-start">
+            <Heading text={siteMetadata.headerText} />
+          </div>
+          <div className="flex self-end justify-self-end pr-5">
+            <input type="search" value="12345" />
           </div>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
