@@ -22,16 +22,7 @@ const BookmarksLayout = (props) => {
             </div>
           </div>
         </div>
-
-        {/* <InstantSearch searchClient={searchClient} indexName="bookmarksIndexProd">
-          <SearchBox />
-          <Hits hitComponent={hitHandler} />
-        </InstantSearch> */}
-        {/* <BookmarksSearchLayout bookmarks={bookmarks} title={title} pagination={pagination} /> */}
-
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-          // TODO: fix the code below, create a global var to get records from other sources ex.
-          Algolia
           {bookmarks &&
             bookmarks.map((bookmark) => {
               return <BookmarkCard bookmark={bookmark} />
