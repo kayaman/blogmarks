@@ -25,7 +25,7 @@ const BookmarksLayout = (props) => {
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {bookmarks &&
             bookmarks.map((bookmark) => {
-              return <BookmarkCard bookmark={bookmark} />
+              return <BookmarkCard key={bookmark._id} bookmark={bookmark} />
             })}
         </ul>
       </div>
