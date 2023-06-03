@@ -12,8 +12,6 @@ const BookmarksLayout = (props) => {
   const {bookmarks, pagination} = props
   const [searchValue, setSearchValue] = useState('')
 
-  console.log('bookmarks:', bookmarks)
-
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
