@@ -2,61 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-.ais-SearchBox-input {
+.ais-SearchBox-input:blur .ais-SearchBox-input {
   padding: 0;
-  border: 0;
   margin: 0;
-  max-height: 2em;
-  min-width: 200px;
-  max-width: 200px;
-  color: antiquewhite;
-  background-color: #262626;
+  height: 1.5em;
   float: right;
-  border: 2px solid;
-  border-radius: 12em;
-  border-color: #71717a;
-  position: relative;
-  padding-right: 100px;
-  padding-top: -29px;
+  font-style: normal;
+  font-size: large;
+  font-weight: bolder;
+  background: slategrey !important;
+  color: black !important;
+  background-color: #71717a !important;
+  padding-inline-start: 20px;
+  min-width: 250px;
+  max-width: 300px;
+  border-color: #145a32 !important;
+  border-radius: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  max-height: 1.5em;
 }
 
-.ais-SearchBox-input:focus {
-  padding: 0;
-  border: 0;
-  margin: 0;
-  max-height: 2em;
-  max-width: 200px;
-  background-color: #9ca3af;
-  color: antiquewhite;
-  float: right;
-  border-radius: 10px;
-  border-color: 1px dotted green;
+.ais-SearchBox-input:hover {
+  border-color: 5px solid #145a32;
+  box-shadow: #145a32;
 }
 
-.ais-SearchBox-input:blur {
+.ais-SearchBox-input:active .ais-SearchBox-input:focus {
   padding: 0;
-  border: 0;
   margin: 0;
-  max-height: 2em;
-  max-width: 200px;
-  background-color: #9ca3af;
-  color: antiquewhite;
+  margin-right: 20px;
+  height: 1.5em;
   float: right;
-  border-radius: 10px;
-  border-color: 1px dotted green;
+  font-style: normal;
+  font-size: large;
+  font-weight: bolder;
+  background: slategrey !important;
+  color: black !important;
+  padding-inline-start: 20px;
+  min-width: 250px;
+  max-width: 300px;
+  border-color: #145a32 !important;
+  border-radius: 2px;
+  border-style: solid;
+  max-height: 1.5em;
 }
+
 .ais-SearchBox {
   padding: 0;
   border: 0;
   margin: 0;
   float: right;
-  max-height: 2em;
+  max-height: 1.5em;
   max-width: 200px;
 }
 
 .ais-SearchBox-form {
-  visibility: hidden;
-  display: none;
+  color: black;
+  max-height: 1.5em;
 }
 
 .ais-Hits {

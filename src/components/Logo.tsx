@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {useTheme} from 'next-themes'
-import {Image} from 'sanity'
 
 interface Logo
   extends React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
@@ -8,7 +7,6 @@ interface Logo
 }
 
 const Logo: React.FunctionComponent<Logo> = (props) => {
-  const [logoTheme, setLogoTheme] = useState()
   const {theme, setTheme, resolvedTheme} = useTheme()
   const logoDarkTheme = '/images/bookmarks_light.png'
   const logoLightTheme = '/images/bookmarks_dark.png'
@@ -19,6 +17,7 @@ const Logo: React.FunctionComponent<Logo> = (props) => {
   } else if (resolvedTheme === 'dark') {
     imgSrc = logoDarkTheme
   }
+  console.log(`theme: ${theme}, imgSrc: ${imgSrc}`)
   return <img src={imgSrc} alt="Bookmarks" width="70px" />
 }
 

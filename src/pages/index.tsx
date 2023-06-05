@@ -25,10 +25,6 @@ export default function Home({bookmarks, title, pagination}) {
       {!isLoading && bookmarks && (
         <BookmarksSearchLayout bookmarks={bookmarks} title={title} pagination={pagination} />
       )}
-      <InstantSearch searchClient={searchClient} indexName="bookmarksIndexProd">
-        <SearchBox />
-        <Hits hitComponent={hitHandler} />
-      </InstantSearch>
     </>
   )
 }
