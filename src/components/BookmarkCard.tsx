@@ -3,12 +3,11 @@ import {BookmarkLink} from './BookmarkLink'
 import {CreatedAt} from './CreatedAt'
 import TagLink from './TagLink'
 
-interface Props
-  extends React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement> {
+interface Props {
   bookmark: Bookmark
 }
 
-const BookmarkCard: React.FunctionComponent<Props> = ({bookmark}) => {
+const BookmarkCard = ({bookmark}) => {
   const {_id, _createdAt, link, title, tags} = bookmark
 
   return (

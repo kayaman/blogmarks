@@ -1,4 +1,5 @@
 const headerNavLinks = [
+  {href: '/search', title: 'Search'},
   {href: '/tags', title: 'Tags'},
   {href: '/references', title: 'References'},
   {href: '/tools', title: 'Tools'},

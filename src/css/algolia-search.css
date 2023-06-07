@@ -41,9 +41,6 @@
 }
 
 .ais-SearchBox-input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   background-color: #fff;
   border: 1px solid #d6d6e7;
   border-radius: 10px;
@@ -123,13 +120,9 @@
   right: 0.5rem;
 }
 
-.ais-SearchBox-loadingIndicator[hidden],
-.ais-SearchBox-reset[hidden] {
-  display: none;
-}
 
 .ais-SearchBox-submit {
-  display: none;
+  display: block;
 }
 
 .ais-Menu-searchBox,
