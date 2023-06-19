@@ -10,7 +10,7 @@ export async function getStaticProps() {
   const title = siteMetadata.toolsPageTitle
   const tagName = 'tools'
   const bookmarks = await getAllBookmarksByTagName(tagName)
-
+  console.log(bookmarks)
   return {
     props: {
       bookmarks,
