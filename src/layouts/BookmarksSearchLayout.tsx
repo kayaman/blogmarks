@@ -6,7 +6,6 @@ import BookmarkCard from '@/components/BookmarkCard'
 import Bookmark from '../types/Bookmark'
 import Tag from '../types/Tag'
 import PaginationType from '../types/PaginationType'
-import bookmark from 'schemas/Bookmark'
 
 interface BookmarkLayoutPropTypes {
   bookmarks: Bookmark[]

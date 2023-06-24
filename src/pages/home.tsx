@@ -5,19 +5,19 @@ import {
 } from '../server/persistence/sanityRepository'
 import BookmarksSearchLayout from '../layouts/BookmarksSearchLayout'
 
-export default async function Home({bookmarks, title, pagination, allbookmarks}) {
+export default async function Home({bookmarks, title, pagination, allBookmarks}) {
   return (
     <BookmarksSearchLayout
       bookmarks={bookmarks}
       title={title}
       pagination={pagination}
-      allbookmarks={allbookmarks}
+      allBookmarks={allBookmarks}
     />
   )
 }
 
 export const getServerSideProps = async () => {
-  const allbookmarks = (await getAllBookmarksPaginated(0, Infinity)) || []
+  const allBookmarks = (await getAllBookmarksPaginated(0, Infinity)) || []
   const bookmarks = (await getAllBookmarksPaginated(0, 25)) || []
   const total = await getAllBookmarksCount()
   const title = siteMetadata.homePageTitle
@@ -31,7 +31,7 @@ export const getServerSideProps = async () => {
       bookmarks,
       title,
       pagination,
-      allbookmarks,
+      allBookmarks,
     },
   }
 }
