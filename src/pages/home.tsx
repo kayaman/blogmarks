@@ -17,7 +17,7 @@ export default async function Home({bookmarks, title, pagination, allbookmarks})
 }
 
 export const getServerSideProps = async () => {
-  const allbookmarks = (await getAllBookmarksPaginated(0, 1000)) || []
+  const allbookmarks = (await getAllBookmarksPaginated(0, Infinity)) || []
   const bookmarks = (await getAllBookmarksPaginated(0, 25)) || []
   const total = await getAllBookmarksCount()
   const title = siteMetadata.homePageTitle
