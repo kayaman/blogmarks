@@ -16,7 +16,7 @@ const About = () => {
   
   return (
 
-    <AuthorLayout content={content}>
+    <AuthorLayout content={content} avatar={avatar}>
       
       <div>I am an engineer who loves challenges, hard problems and to learn something new everyday. I am a fast paced and proactive self learner. I have passion for learning new idioms, languages and technologies. I am a result-oriented and motivated person, and I assume responsibilities.</div>
 

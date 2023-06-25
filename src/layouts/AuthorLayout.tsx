@@ -2,14 +2,16 @@ import {ReactNode} from 'react'
 import type {Authors} from 'contentlayer/generated'
 import SocialIcon from 'src/components/social-icons'
 import Image from 'src/components/Image'
+import { StaticImageData } from 'next/image'
 
 interface Props {
   children: ReactNode
-  content: Omit<Authors, '_id' | '_raw' | 'body' | 'type' | 'readingTime' | 'slug' | 'path' | 'filePath' | 'toc' >
+  content: Omit<Authors, '_id' | 'avatar' | '_raw' | 'body' | 'type' | 'readingTime' | 'slug' | 'path' | 'filePath' | 'toc'>
+  avatar: StaticImageData
 }
 
-export default function AuthorLayout({children, content}: Props) {
-  const {name, avatar, occupation, company, email, twitter, linkedin, github} = content
+export default function AuthorLayout({children, content, avatar}: Props) {
+  const {name, occupation, company, email, twitter, linkedin, github} = content
 
   return (
     <>
