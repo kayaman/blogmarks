@@ -19,16 +19,14 @@ export const getAllBookmarksPaginated = async (start: number, end: number): Prom
 
 export const getAllBookmarksByTagName = async (tagName: string): Promise<Bookmark[]> => {
   const result = await sanityClient.fetch(
-    `
-    *[_type=='tag' && name==$tagName ]
-      {_id, name, 'bookmarks': 
-      *[_type=='bookmark' && references(^._id)]
-      {_id, _createdAt, link, title, 'tags': tags[]->} }
+    `*[_type == 'tag' && name == $tagName]{_id, name, 'bookmarks': 
+         *[_type == 'bookmark' && references(^._id)]{_id, _createdAt, link, title, 'tags':
+             tags[]->}}
       | order(_createdAt desc)
     `,
     {tagName: tagName}
   )
-  const {bookmarks} = result[0]
+  const { bookmarks } = result[0]
   return bookmarks
 }
 

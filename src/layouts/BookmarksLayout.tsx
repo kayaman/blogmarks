@@ -20,7 +20,7 @@ const BookmarksLayout = (props) => {
         <div className="flex-row pt-6 pb-8 space-y-2 md:space-y-5">
           <div className="inline-flex items-baseline">
             <div className="self-start justify-self-start">
-              <Heading text={title || 'References'} />
+              <Heading text={title} />
             </div>
           </div>
         </div>
