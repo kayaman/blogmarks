@@ -2,11 +2,10 @@ import {ReactNode} from 'react'
 import type {Authors} from 'contentlayer/generated'
 import SocialIcon from 'src/components/social-icons'
 import Image from 'src/components/Image'
-import {PageSEO} from 'src/components/SEO'
 
 interface Props {
   children: ReactNode
-  content: Omit<Authors, '_id' | '_raw' | 'body'>
+  content: Omit<Authors, '_id' | '_raw' | 'body' | 'type' | 'readingTime' | 'slug' | 'path' | 'filePath' | 'toc' >
 }
 
 export default function AuthorLayout({children, content}: Props) {
