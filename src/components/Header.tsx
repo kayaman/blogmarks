@@ -7,24 +7,34 @@ import Logo from './Logo'
 
 const Header = () => {
   return (
-    <header className="justify-left flex items-center pb-5 pl-5 pr-5 pt-6">
+    <header className='pt-5'>
+      
+      <div className='flex flex-row '>
+        <div className='flex-none'>
+          <Link href="/" aria-label={siteMetadata.headerTitle}>
+            <Logo />
+          </Link>
+        </div>
+        <div className="flex-initial text-xl font-bold m-auto pb-8 align-middle sm:text-l h-4">
+          <Link href="/" aria-label={siteMetadata.headerTitle}>
+            {siteMetadata.headerTitle}
+          </Link>
+        </div>
+        <div className='flex-auto pl-10 m-auto align-middle'>
+          <MobileNav />
+        </div>
+        <div className='flex-auto m-auto align-middle'>
+          <ThemeSwitch />
+        </div>
+      </div>
+{/* 
       <div>
-        <Link href="/" aria-label={siteMetadata.headerTitle}>
-          <div className="justify-left flex items-center">
-            <div className="mr-3">
-              <Logo />
-            </div>
-            <div className="hidden h-5 text-2xl font-semibold sm:block">
-              {siteMetadata.headerTitle}
-            </div>
-            <div className="h-5 text-xl font-semibold sm:block">{siteMetadata.pageTitle}</div>
-          </div>
-        </Link>
-        <p className="leading-2 text-base text-gray-300 dark:text-gray-400">
+        
+        <p className="hidden sm:block leading-2 dark:text-gray-400">
           {siteMetadata.description}
         </p>
       </div>
-      <div className="leading-2 flex items-end text-right align-top text-base">
+      <div className="hidden md:block leading-2 flex items-end text-right align-top text-base">
         <div className="text-lg">
           {headerNavLinks.map((link) => (
             <Link
@@ -36,9 +46,11 @@ const Header = () => {
             </Link>
           ))}
         </div>
+      </div>
+      <div>
         <ThemeSwitch />
         <MobileNav />
-      </div>
+      </div> */}
     </header>
   )
 }
