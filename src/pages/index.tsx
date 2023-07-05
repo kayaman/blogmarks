@@ -1,3 +1,4 @@
+import { isMobile, isTablet, isDesktop } from 'react-device-detect';
 import siteMetadata from '@/data/siteMetadata'
 import {getAllBookmarksCount, getAllBookmarksPaginated} from '@/server/persistence/sanityRepository'
 import BookmarksSearchLayout from '@/layouts/BookmarksSearchLayout'
@@ -9,6 +10,7 @@ interface HomePageProps {
   bookmarks: Bookmark[]
   pagination: PaginationType
   title: string
+  isMobileDevice?: boolean
 }
 
 const PAGE_SIZE = siteMetadata.pageSize
@@ -25,14 +27,22 @@ export default function Home({bookmarks, title, pagination, allBookmarks}: HomeP
 }
 
 export async function getServerSideProps() {
-  const allBookmarks = (await getAllBookmarksPaginated(0, 2000)) || []
-  const bookmarks = (await getAllBookmarksPaginated(0, PAGE_SIZE)) || []
+  const allBookmarks = (await getAllBookmarksPaginated(0, 10000)) || []
+  const paginatedBookmarks = (await getAllBookmarksPaginated(0, PAGE_SIZE)) || []
   const total = await getAllBookmarksCount()
   const title = siteMetadata.homePageTitle
-  const pagination = {
+  
+  const bookmarks = isMobile ? allBookmarks : paginatedBookmarks
+
+  console.log(`isMobile?: ${isMobile}`)
+
+  const pagination: PaginationType = {
     currentPage: 1,
     totalPages: Math.floor(total / PAGE_SIZE),
+    infiniteScroll: isMobile ? true : false,
   }
+
+  
 
   return {
     props: {

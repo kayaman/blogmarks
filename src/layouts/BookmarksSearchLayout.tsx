@@ -92,7 +92,8 @@ const BookmarksLayout = (props: BookmarkLayoutPropTypes) => {
             })}
         </ul>
       </div>
-      {pagination && pagination.totalPages > 1 && !searchValue && (
+      {console.log('BookmarksSearchLayout: ', pagination)}
+      {pagination && !pagination.infiniteScroll && pagination.totalPages > 1 && !searchValue && (
         <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
       )}
     </>
