@@ -48,6 +48,7 @@
     "pliny": "0.0.10",
     "postcss": "^8.4.16",
     "react": "18.2.0",
+    "react-device-detect": "^2.2.3",
     "react-dom": "18.2.0",
     "react-instantsearch-core": "^6.40.0",
     "react-instantsearch-dom": "^6.40.0",
