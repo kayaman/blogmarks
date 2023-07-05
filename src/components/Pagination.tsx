@@ -21,7 +21,7 @@ const Pagination = ({totalPages, currentPage}: PaginationProps) => {
         )}
         {prevPage && (
           <a
-            href={currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`}
+            href={currentPage - 1 === 1 ? '/' : `/page/${currentPage - 1}`}
             rel="prev"
           >
             Previous
