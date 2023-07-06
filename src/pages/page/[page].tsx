@@ -1,8 +1,6 @@
-import { isMobile, isTablet, isDesktop } from 'react-device-detect';
 import siteMetadata from '@/data/siteMetadata'
 import BookmarksLayout from '@/layouts/BookmarksLayout'
 import {getAllBookmarksCount, getAllBookmarksPaginated} from '@/server/persistence/sanityRepository'
-import PaginationType from '@/src/types/PaginationType';
 
 const PaginatedBookmarksList = ({bookmarks, title, pagination}) => {
   return <BookmarksLayout bookmarks={bookmarks} title={title} pagination={pagination} />
@@ -22,16 +20,12 @@ export const getStaticProps = async (context) => {
     end = start + PAGE_SIZE
   }
   const total = await getAllBookmarksCount()
-
-  const allBookmarks = (await getAllBookmarksPaginated(0, 10000)) || []
-  const paginatedBookmarks = (await getAllBookmarksPaginated(0, PAGE_SIZE)) || []
-  const bookmarks = isMobile ? allBookmarks : paginatedBookmarks
+  const bookmarks = await getAllBookmarksPaginated(start, end)
 
   const title = siteMetadata.homePageTitle
-  const pagination: PaginationType = {
-    currentPage: 1,
-    totalPages: Math.floor(total / PAGE_SIZE),
-    infiniteScroll: isMobile ? false : true,
+  const pagination = {
+    currentPage: parseInt(page),
+    totalPages: Math.ceil(total / PAGE_SIZE),
   }
 
   return {
