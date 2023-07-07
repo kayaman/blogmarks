@@ -30,7 +30,7 @@ export async function getServerSideProps() {
   const pagination: PaginationType = {
     currentPage: 1,
     totalPages: Math.floor(total / PAGE_SIZE),
-    infiniteScroll: isDesktop ? false : true,
+    infiniteScroll: true, // isDesktop ? false : true,
   }
 
   const bookmarks = pagination?.infiniteScroll ? searchableBookmarks : paginatedBookmarks
