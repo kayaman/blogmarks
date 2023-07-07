@@ -1,34 +1,29 @@
 import siteMetadata from '@/data/siteMetadata'
 import {getAllBookmarksCount, getAllBookmarksPaginated} from '@/server/persistence/sanityRepository'
-import BookmarksSearchLayout from '@/layouts/BookmarksSearchLayout'
-import Bookmark from '../types/Bookmark'
-import PaginationType from '../types/PaginationType'
+import BookmarksLayout from '@/layouts/BookmarksLayout'
+import BookmarksLayoutPropTypes from '../layouts/BookmarksLayoutPropTypes'
 
-interface HomePageProps {
-  allBookmarks: Bookmark[]
-  bookmarks: Bookmark[]
-  pagination: PaginationType
-  title: string
-}
+interface HomePageProps extends BookmarksLayoutPropTypes {}
 
-const PAGE_SIZE = siteMetadata.pageSize
+export default function Home(props: HomePageProps) {
+  const {bookmarks, title, pagination, searchableBookmarks} = props
 
-export default function Home({bookmarks, title, pagination, allBookmarks}: HomePageProps) {
   return (
-    <BookmarksSearchLayout
+    <BookmarksLayout
       bookmarks={bookmarks}
       title={title}
       pagination={pagination}
-      allBookmarks={allBookmarks}
+      searchableBookmarks={searchableBookmarks}
     />
   )
 }
 
-export async function getServerSideProps() {
-  const allBookmarks = (await getAllBookmarksPaginated(0, 2000)) || []
+export async function getStaticProps() {
+  const PAGE_SIZE = siteMetadata.pageSize
   const bookmarks = (await getAllBookmarksPaginated(0, PAGE_SIZE)) || []
-  const total = await getAllBookmarksCount()
+  const searchableBookmarks = (await getAllBookmarksPaginated(0, 10000)) || []
   const title = siteMetadata.homePageTitle
+  const total = await getAllBookmarksCount()
   const pagination = {
     currentPage: 1,
     totalPages: Math.floor(total / PAGE_SIZE),
@@ -36,9 +31,9 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      allBookmarks,
       bookmarks,
       pagination,
+      searchableBookmarks,
       title,
       total,
     },
