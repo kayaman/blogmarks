@@ -1,7 +1,9 @@
+import {isMobile} from 'react-device-detect'
 import siteMetadata from '@/data/siteMetadata'
 import {getAllBookmarksCount, getAllBookmarksPaginated} from '@/server/persistence/sanityRepository'
 import BookmarksLayout from '@/layouts/BookmarksLayout'
 import BookmarksLayoutPropTypes from '../layouts/BookmarksLayoutPropTypes'
+import PaginationType from '../types/PaginationType'
 
 interface HomePageProps extends BookmarksLayoutPropTypes {}
 
@@ -20,14 +22,18 @@ export default function Home(props: HomePageProps) {
 
 export async function getServerSideProps() {
   const PAGE_SIZE = siteMetadata.pageSize
-  const bookmarks = (await getAllBookmarksPaginated(0, PAGE_SIZE)) || []
+  const paginatedBookmarks = (await getAllBookmarksPaginated(0, PAGE_SIZE)) || []
   const searchableBookmarks = (await getAllBookmarksPaginated(0, 10000)) || []
   const title = siteMetadata.homePageTitle
   const total = await getAllBookmarksCount()
-  const pagination = {
+
+  const pagination: PaginationType = {
     currentPage: 1,
     totalPages: Math.floor(total / PAGE_SIZE),
+    infiniteScroll: isMobile ? true : false,
   }
+
+  const bookmarks = pagination?.infiniteScroll ? searchableBookmarks : paginatedBookmarks
 
   return {
     props: {
