@@ -18,7 +18,7 @@ const PaginatedBookmarksPage = (props: PaginatedBookmarksPagePropTypes) => {
     <BookmarksLayout
       bookmarks={bookmarks}
       pagination={pagination}
-      title="title"
+      title={title}
       searchableBookmarks={searchableBookmarks}
     />
   )

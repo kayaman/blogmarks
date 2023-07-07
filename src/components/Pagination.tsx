@@ -1,4 +1,3 @@
-import siteMetadata from '@/data/siteMetadata'
 import {useRouter} from 'next/router'
 
 interface PaginationProps {
@@ -20,10 +19,7 @@ const Pagination = ({totalPages, currentPage}: PaginationProps) => {
           </button>
         )}
         {prevPage && (
-          <a
-            href={currentPage - 1 === 1 ? '/' : `/page/${currentPage - 1}`}
-            rel="prev"
-          >
+          <a href={currentPage - 1 === 1 ? '/' : `/page/${currentPage - 1}`} rel="prev">
             Previous
           </a>
         )}
