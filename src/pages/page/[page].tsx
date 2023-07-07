@@ -1,9 +1,27 @@
 import siteMetadata from '@/data/siteMetadata'
 import BookmarksLayout from '@/layouts/BookmarksLayout'
 import {getAllBookmarksCount, getAllBookmarksPaginated} from '@/server/persistence/sanityRepository'
+import Bookmark from '@/src/types/Bookmark'
+import PaginationType from '@/src/types/PaginationType'
 
-const PaginatedBookmarksList = ({bookmarks, title, pagination}) => {
-  return <BookmarksLayout bookmarks={bookmarks} title={title} pagination={pagination} />
+interface PaginatedBookmarksPagePropTypes {
+  bookmarks: Bookmark[]
+  pagination: PaginationType
+  title: string
+  searchableBookmarks: Bookmark[]
+}
+
+const PaginatedBookmarksPage = (props: PaginatedBookmarksPagePropTypes) => {
+  const {bookmarks, pagination, title, searchableBookmarks} = props
+
+  return (
+    <BookmarksLayout
+      bookmarks={bookmarks}
+      pagination={pagination}
+      title="title"
+      searchableBookmarks={searchableBookmarks}
+    />
+  )
 }
 
 const PAGE_SIZE = siteMetadata.pageSize
@@ -21,7 +39,7 @@ export const getStaticProps = async (context) => {
   }
   const total = await getAllBookmarksCount()
   const bookmarks = await getAllBookmarksPaginated(start, end)
-
+  const searchableBookmarks = (await getAllBookmarksPaginated(0, 10000)) || []
   const title = siteMetadata.homePageTitle
   const pagination = {
     currentPage: parseInt(page),
@@ -31,8 +49,9 @@ export const getStaticProps = async (context) => {
   return {
     props: {
       bookmarks,
-      title,
       pagination,
+      searchableBookmarks,
+      title,
     },
   }
 }
@@ -48,4 +67,4 @@ export const getStaticPaths = async () => {
   return {paths, fallback: false}
 }
 
-export default PaginatedBookmarksList
+export default PaginatedBookmarksPage

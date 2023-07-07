@@ -19,7 +19,7 @@ module.exports = {
   ],
   rules: {
     'prettier/prettier': 'error',
-    'prettier/prettier': ['error', { singleQuote: true }],
+    'prettier/prettier': ['error', {singleQuote: true}],
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
