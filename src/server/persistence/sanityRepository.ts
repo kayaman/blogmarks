@@ -26,7 +26,7 @@ export const getAllBookmarksByTagName = async (tagName: string): Promise<Bookmar
     `,
     {tagName: tagName}
   )
-  const { bookmarks } = result[0]
+  const {bookmarks} = result[0]
   return bookmarks
 }
 

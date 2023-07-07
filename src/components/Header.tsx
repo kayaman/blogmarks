@@ -7,26 +7,26 @@ import Logo from './Logo'
 
 const Header = () => {
   return (
-    <header className='pt-5'>
-      <div className='flex flex-col'>        
-        <div className='flex flex-row '>
-          <div className='flex-none'>
+    <header className="pt-5">
+      <div className="flex flex-col">
+        <div className="flex flex-row ">
+          <div className="flex-none">
             <Link href="/" aria-label={siteMetadata.headerTitle}>
               <Logo />
             </Link>
           </div>
-          <div className="flex-initial text-xl font-bold m-auto pb-8 align-middle sm:text-l h-4">
+          <div className="sm:text-l m-auto h-4 flex-initial pb-8 align-middle text-xl font-bold">
             <Link href="/" aria-label={siteMetadata.headerTitle}>
               {siteMetadata.headerTitle}
             </Link>
           </div>
-          <div className='flex-auto pl-10 m-auto align-middle'>
+          <div className="m-auto flex-auto pl-10 align-middle">
             <MobileNav />
           </div>
-          <div className='hidden lg:block flex-auto pl-10 m-auto align-middle'>
+          <div className="m-auto hidden flex-auto pl-10 align-middle lg:block">
             <MobileNav />
           </div>
-          <div className="hidden md:block m-auto flex-auto text-center justify-center align-text-bottom">
+          <div className="m-auto hidden flex-auto justify-center text-center align-text-bottom md:block">
             {headerNavLinks.map((link) => (
               <Link
                 key={link.title}
@@ -37,11 +37,11 @@ const Header = () => {
               </Link>
             ))}
           </div>
-          <div className='flex-auto m-auto text-center align-middle'>
+          <div className="m-auto flex-auto text-center align-middle">
             <ThemeSwitch />
           </div>
         </div>
-        <div className='hidden md:block leading-2 dark:text-gray-400'>
+        <div className="leading-2 hidden dark:text-gray-400 md:block">
           {siteMetadata.description}
         </div>
       </div>
