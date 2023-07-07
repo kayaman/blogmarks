@@ -18,7 +18,7 @@ export default function Home(props: HomePageProps) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const PAGE_SIZE = siteMetadata.pageSize
   const bookmarks = (await getAllBookmarksPaginated(0, PAGE_SIZE)) || []
   const searchableBookmarks = (await getAllBookmarksPaginated(0, 10000)) || []

@@ -53,6 +53,7 @@ export const getStaticProps = async (context) => {
       searchableBookmarks,
       title,
     },
+    revalidate: 15,
   }
 }
 
