@@ -1,9 +1,6 @@
 import BookmarksLayout from '@/layouts/BookmarksLayout'
 import siteMetadata from '@/data/siteMetadata'
-import {
-  getAllBookmarksByTagName,
-  getAllBookmarksPaginated,
-} from '@/server/persistence/sanityRepository'
+import {getAllBookmarksByTagName} from '@/server/persistence/sanityRepository'
 import BookmarksLayoutPropTypes from '@/layouts/BookmarksLayoutPropTypes'
 
 interface ReferencesPagePropTypes extends BookmarksLayoutPropTypes {}
@@ -25,7 +22,7 @@ export async function getStaticProps() {
   const title = siteMetadata.referencesPageTitle
   const tagName = 'reference'
   const bookmarks = await getAllBookmarksByTagName(tagName)
-  const searchableBookmarks = (await getAllBookmarksPaginated(0, 10000)) || []
+  const searchableBookmarks = bookmarks // page scope search
 
   return {
     props: {
