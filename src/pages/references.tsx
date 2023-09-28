@@ -18,7 +18,7 @@ const ReferencesPage = (props: ReferencesPagePropTypes) => {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const title = siteMetadata.referencesPageTitle
   const tagName = 'reference'
   const bookmarks = await getAllBookmarksByTagName(tagName)
@@ -29,8 +29,7 @@ export async function getStaticProps() {
       bookmarks,
       searchableBookmarks,
       title,
-    },
-    revalidate: 60,
+    }
   }
 }
 
