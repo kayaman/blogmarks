@@ -18,7 +18,7 @@ const ToolsPage = (props: ToolsPagePropTypes) => {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const title = siteMetadata.toolsPageTitle
   const tagName = 'tools'
   const bookmarks = await getAllBookmarksByTagName(tagName)
