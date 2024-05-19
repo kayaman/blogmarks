@@ -5,10 +5,10 @@ import {schemaTypes} from './schemas'
 
 export default defineConfig([
   {
+    basePath: '/admin',
     projectId: 'zyofsvoi',
     dataset: 'production',
     name: 'bookmarks-prod',
-    basePath: '/admin',
     title: 'Production',
     plugins: [deskTool(), visionTool()],
     schema: {
